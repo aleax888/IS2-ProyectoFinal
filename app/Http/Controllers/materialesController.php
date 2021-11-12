@@ -12,10 +12,9 @@ class MaterialesController extends Controller
     public function __invoke(){
         $t = DB::table('materiales')
             ->join('actividades', 'actividades.id', '=', 'materiales.id_actividad')
-            ->join('asistencias', 'paquetes.id', '=', 'inscripciones.id_paquete')
-            ->select('usuarios.nombre as unombre', 'usuarios.apellido', 'paquetes.nombre as pnombre', 'inscripciones.tipos_inscrito', 'inscripciones.createdfecha_inscripcion')
+            ->join('asistencias', 'asistencias.id_actividades', '=', 'actividades.id')
+            ->select('materiales.nombre', 'materiales.cantidad', 'asistencias.material', 'asistencias.hora')
             ->get();
-        return view('Inscritos.inscritosView', compact('t'));
-        return view('materialesView');;
+        return view('materialesView', compact('t'));
     }
 }

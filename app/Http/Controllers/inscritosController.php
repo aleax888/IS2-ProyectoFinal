@@ -18,9 +18,6 @@ class InscritosController extends Controller
             ->select('usuarios.nombre as unombre', 'usuarios.apellido', 'paquetes.nombre as pnombre', 'inscripciones.tipos_inscrito', 'inscripciones.createdfecha_inscripcion')
             ->get();
         return view('Inscritos.inscritosView', compact('t'));
-        // $inscripciones = Inscripcion::all();
-        // $usuarios = Usuario::all();
-        // return view('Inscritos.inscritosView', compact('inscripciones'), compact('usuarios'));
     }
 
     public function showInscrito($inscrito){//"asistencia de $inscrito";
@@ -32,7 +29,6 @@ class InscritosController extends Controller
             ->where('usuarios.id', '=', $inscrito)
             ->get();
         return view('Inscritos.showInscritoView', compact('t'));
-        //return compact('t');
     }
 
     public function showQR($inscrito){//"QR de $inscrito";
