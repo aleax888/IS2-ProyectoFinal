@@ -18,7 +18,9 @@ class CreateInscripcionesTable extends Migration
             $table->id();
             
             $table->string('tipos_inscrito');
-            $table->timestamp('fecha_inscripcion')->nullable();
+            $table->datetime('createdfecha_inscripcion')->nullable();
+            
+            $table->timestamps();
         });
     }
 

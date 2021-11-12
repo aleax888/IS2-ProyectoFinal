@@ -15,8 +15,11 @@ class CreateTiposGastoTable extends Migration
     {
         Schema::create('tipos_gasto', function (Blueprint $table) {
             $table->engine = 'InnoDB';
+
             $table->id();
             $table->string('nombre');
+
+            $table->timestamps();
         });
     }
 

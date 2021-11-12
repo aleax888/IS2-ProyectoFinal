@@ -16,7 +16,10 @@ class CreateTiposMaterialTable extends Migration
         Schema::create('tipos_material', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
+            
             $table->string('nombre');
+
+            $table->timestamps();
         });
     }
 

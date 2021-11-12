@@ -17,6 +17,8 @@ class CreateCodigosTable extends Migration
             $table->engine = 'InnoDB';
         
             $table->integer('codigo_comite');
+
+            $table->timestamps();
         });
     }
 

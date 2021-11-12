@@ -16,7 +16,10 @@ class CreateExpositoresTable extends Migration
         Schema::create('expositores', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
+
             $table->string('nombre');
+
+            $table->timestamps();
         });
     }
 

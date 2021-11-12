@@ -17,10 +17,12 @@ class CreateGastosTable extends Migration
             $table->engine = 'InnoDB';
             $table->id();
 
-            $table->timestamps();
+            $table->datetime('fecha')->nullable();
             $table->text('descripcion');
             $table->integer('monto');
             $table->string('evidencia');
+
+            $table->timestamps();
         });
     }
 
