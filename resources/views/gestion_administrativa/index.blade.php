@@ -1,4 +1,4 @@
-Aqui iria el crud de eventos
+<h1>Eventos</h1>
 <table class="table table-light" border = 1>
     <thead class = "thead-light">
         <tr>

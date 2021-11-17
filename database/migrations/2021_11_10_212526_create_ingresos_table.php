@@ -18,7 +18,9 @@ class CreateIngresosTable extends Migration
             $table->id();
 
             $table->integer('num_transaccion');
-
+            $table->date('fecha');
+            $table->integer('monto');
+            
             $table->timestamps();
         });
     }

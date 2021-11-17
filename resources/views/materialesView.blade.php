@@ -17,8 +17,8 @@
         <tr>
             <td>{{$t->nombre}}</td>
             <td>{{$t->cantidad}}</td>
-            <td>{{$t->material}}</td>
-            <td>{{$t->hora}}</td>
+            <td>{{$t->cantidad_material}}</td>
+            <td>{{$t->fecha}}</td>
         </tr>
     @endforeach
 

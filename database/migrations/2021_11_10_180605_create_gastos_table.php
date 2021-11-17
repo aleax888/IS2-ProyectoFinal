@@ -17,7 +17,7 @@ class CreateGastosTable extends Migration
             $table->engine = 'InnoDB';
             $table->id();
 
-            $table->datetime('fecha')->nullable();
+            $table->date('fecha');
             $table->text('descripcion');
             $table->integer('monto');
             $table->string('evidencia');

@@ -17,8 +17,7 @@ class CreateInscripcionesTable extends Migration
             $table->engine = 'InnoDB';
             $table->id();
             
-            $table->string('tipos_inscrito');
-            $table->datetime('createdfecha_inscripcion')->nullable();
+            $table->date('fecha_inscripcion');
             
             $table->timestamps();
         });

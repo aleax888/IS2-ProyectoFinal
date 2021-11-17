@@ -13,7 +13,7 @@ class MaterialesController extends Controller
         $t = DB::table('materiales')
             ->join('actividades', 'actividades.id', '=', 'materiales.id_actividad')
             ->join('asistencias', 'asistencias.id_actividades', '=', 'actividades.id')
-            ->select('materiales.nombre', 'materiales.cantidad', 'asistencias.material', 'asistencias.hora')
+            ->select('materiales.nombre', 'materiales.cantidad', 'asistencias.cantidad_material', 'asistencias.fecha')
             ->get();
         return view('materialesView', compact('t'));
     }

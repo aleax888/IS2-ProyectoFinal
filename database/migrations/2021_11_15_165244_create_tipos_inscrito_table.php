@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePreinscripcionesTable extends Migration
+class CreateTiposInscritoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreatePreinscripcionesTable extends Migration
      */
     public function up()
     {
-        Schema::create('preinscripciones', function (Blueprint $table) {
+        Schema::create('tipos_inscrito', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
-
-            $table->date('fecha_preinscripcion');
+            
+            $table->string('nombre');
 
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ class CreatePreinscripcionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('preinscripciones');
+        Schema::dropIfExists('tipos_inscrito');
     }
 }

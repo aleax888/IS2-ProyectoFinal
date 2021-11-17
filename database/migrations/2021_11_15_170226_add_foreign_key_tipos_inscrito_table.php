@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePreinscripcionesTable extends Migration
+class AddForeignKeyTiposInscritoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreatePreinscripcionesTable extends Migration
      */
     public function up()
     {
-        Schema::create('preinscripciones', function (Blueprint $table) {
+        Schema::table('inscripciones', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->id();
-
-            $table->date('fecha_preinscripcion');
-
-            $table->timestamps();
+            $table->bigInteger('id_tipo_inscrito')->unsigned();
+            $table->foreign('id_tipo_inscrito')->references('id')->on('tipos_inscrito');
         });
     }
 
@@ -30,6 +27,8 @@ class CreatePreinscripcionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('preinscripciones');
+        Schema::table('inscripciones', function (Blueprint $table) {
+            //
+        });
     }
 }

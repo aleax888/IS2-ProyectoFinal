@@ -9,19 +9,19 @@
 <tbody>
     <h1>{{$dataEvento->nombre}}</h1>
     <br>
-    <tr>
-        <td>
+    <td>
+        <li>
             <a href="{{url('/GestionAdministrativa/ShowCrearComite/'.$dataEvento->id)}}">
                 CrearComite
             </a> 
-        </td>
-        <td>EditarComite</td>
-        <td>
+        </li>
+        <li>EditarComite</li>
+        <li>
             <a href="{{url('/GestionAdministrativa/GestionarRoles')}}">
             GestionarRoles
-        </td>
+        </li>
 
-    </tr>
+    </td>
     
     
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Comite;
 use App\Models\Evento;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class EventoController extends Controller
 {
@@ -25,9 +27,22 @@ class EventoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function crearEvento()
     {
-        //
+        $t = DB::table('tipos_evento')
+            ->select('tipos_evento.nombre', 'tipos_evento.id')
+            ->get();
+        return view('crearEventoView', compact('t'));
+    }
+
+    public function adaptarEvento()
+    {
+        return view('adaptarEventoView');
+    }
+
+    public function editarEvento()
+    {
+        return view('editarEventoView');
     }
 
     /**

@@ -16,8 +16,8 @@ class CreateDtllesActividadTable extends Migration
         Schema::create('dtlles_actividad', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             
-            $table->datetime('hora_inicio')->nullable();
-            $table->datetime('hora_fin')->nullable();
+            $table->time('hora_inicio')->nullable();
+            $table->time('hora_fin')->nullable();
 
             $table->timestamps();
         });
