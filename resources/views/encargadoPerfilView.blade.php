@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('title', 'editar evento')
+@section('title', 'Encargado')
 
 @section('lista')
     <div class="container-fluid">
@@ -12,7 +12,7 @@
                 <a class="nav-link" style="color: #8FBCBB" href="{{url('/GestionAdministrativa/Eventos')}}">Administracion</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="color: #DEC692" href="{{url('/configuracion/seleccion')}}">Configuracion</a>
+                <a class="nav-link" style="color: #8FBCBB" href="{{url('/configuracion/seleccion')}}">Configuracion</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" style="color: #8FBCBB" href="#">Caja</a>
@@ -26,5 +26,5 @@
 @endsection
 
 @section('content')
-    <h1>Editar Evento</h1>
+<h3>Perfil Encargado</h3>
 @endsection

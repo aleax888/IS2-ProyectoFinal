@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class configuracionController extends Controller
 {
+    // codigo (PT04)
     public function __invoke()
     {
         $t = DB::table('eventos')

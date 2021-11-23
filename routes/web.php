@@ -1,8 +1,13 @@
 <?php
 
-//Reportes
+
 use Illuminate\Support\Facades\Route;
+
+// LogIn - Register - Home page
+use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\HomeController;
+
+//Reportes
 use App\Http\Controllers\ReportesController;
 use App\Http\Controllers\CierreDeCajaController;
 use App\Http\Controllers\InscritosController;
@@ -11,7 +16,6 @@ use App\Http\Controllers\MaterialesController;
 //Gestion Administrativa
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\ComiteController;
-use App\Http\Controllers\UsuarioController;
 
 //Configuracion
 use App\Http\Controllers\ConfiguracionController;
@@ -19,7 +23,7 @@ use App\Http\Controllers\ConfiguracionController;
 
 
 // LogIn - Register - Home
-Route::get('/{rol}', HomeController::class);
+Route::get('/{rol}', UsuarioController::class);
 //Route::get('/login', RegisterController::class);
 //Route::get('/register', LogInController::class);
 
@@ -37,13 +41,20 @@ Route::resource('GestionAdministrativa/Eventos', EventoController::class);
 Route::resource('GestionAdministrativa/Comites', ComiteController::class);
 Route::post('GestionAdministrativa/CrearComite/', [EventoController::class, 'GuardarComite']);
 Route::get('GestionAdministrativa/ShowCrearComite/{id}', [EventoController::class, 'ShowGuardarComite']);
-Route::get('GestionAdministrativa/GestionarRoles', [UsuarioController::class, 'mostrarUsuarios']);
+Route::get('GestionAdministrativa/GestionarRoles/{id}', [EventoController::class, 'showEditarRol']);
+Route::post('GestionAdministrativa/GestionarRoles/{id}', [EventoController::class, 'saveEditarRol']);
 
 //Configuracion
 Route::get('configuracion/seleccion', ConfiguracionController::class);
 Route::get('configuracion/crearevento', [EventoController::class, 'crearEvento']);
+Route::post('configuracion/crearevento', [EventoController::class, 'crearEventoGuardar']);
 Route::get('configuracion/adaptarevento', [EventoController::class, 'adaptarEvento']);
 Route::get('configuracion/editarevento', [EventoController::class, 'editarEvento']);
+
+//Asistencias
+Route::get('responsabilidades/seleccion', [UsuarioController::class, 'listarEventos']);
+Route::get('responsabilidades/tomarAsistencia/{id_evento}', [UsuarioController::class, 'tomarAsistencia']);
+Route::get('responsabilidades/materialesAmbiente', [UsuarioController::class, 'materialesAmbiente']);
 
 
 

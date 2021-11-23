@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 class CierreDeCajaController extends Controller
 {
+    // codigo (PT02)
     public function CDCevento($idEvento){//"Cierre de Caja por Evento";
         $t = DB::table('gastos')
             ->join('eventos', 'eventos.id', '=', 'gastos.id_evento')
@@ -21,6 +22,8 @@ class CierreDeCajaController extends Controller
             ->get();
         return view('CierreDeCaja.CDCeventoView', compact('t'));
     }
+    
+    // codigo (PT03)
     public function CDCdiario($fecha){//"Cierre de Caja diario";
         $t = DB::table('gastos')
             ->join('eventos', 'eventos.id', '=', 'gastos.id_evento')

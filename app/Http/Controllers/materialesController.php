@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class MaterialesController extends Controller
 {
+    //codigo (PT09)
     public function __invoke(){
         $t = DB::table('materiales')
             ->join('actividades', 'actividades.id', '=', 'materiales.id_actividad')

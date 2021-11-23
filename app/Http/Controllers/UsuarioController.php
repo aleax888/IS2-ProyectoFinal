@@ -6,6 +6,9 @@ use App\Models\Rol;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+
 class UsuarioController extends Controller
 {
     /**
@@ -13,10 +16,61 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //codigo (PT10)
+    public function __invoke($rol)
+    {
+        $model = ReportesController::class;
+
+        if ($rol == "Participante")
+            return view('participantePerfilView');
+        if ($rol == "Colaborador")
+            return view('colaboradorPerfilView');
+        if ($rol == "Administrador")
+            return view('administradorPerfilView');
+        if ($rol == "Encargado")
+            return view('encargadoPerfilView');
+    }
+
+    //codigo (PT11)
+    public function listarEventos()
+    {
+        $t = DB::table('eventos')
+            ->select('eventos.nombre', 'eventos.id')
+            //->where('eventos.id_usuario','=',$id)
+            ->get();
+        return view('responsabilidadesView', compact('t'));
+    }
+
+    //codigo (PT12)
+    public function tomarAsistencia($id_evento)
+    {
+        $t = DB::table('inscripciones')
+            ->join('usuarios','usuarios.id','=','inscripciones.id_usuario')
+            ->join('eventos','eventos.id','=','inscripciones.id_evento')
+            ->where('eventos.id','=',$id_evento)
+            ->select('eventos.nombre as evento', 'eventos.id', 'usuarios.nombre as unombre', 'usuarios.apellido')
+            ->get();
+        return view('tomaDeAsistenciaView', compact('t'));
+    }
+
+    //codigo (PT13)
+    public function materialesAmbiente()
+    {
+        $t = DB::table('materiales')
+            ->select('materiales.nombre', 'materiales.id')
+            ->get();
+            
+        return view('entregaDeMaterialAmbienteView', compact('t'));
+    }
+    
+
     public function index()
     {
         //
     }
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -84,6 +138,7 @@ class UsuarioController extends Controller
         //
     }
 
+    //codigo (PT14)
     public function mostrarUsuarios()
     {
         $rol = Rol::all();

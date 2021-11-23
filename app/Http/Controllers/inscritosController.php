@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class InscritosController extends Controller
 {
+    //codigo (PT06)
     public function __invoke(){//"Inscritos";
         $t = DB::table('inscripciones')
             ->join('usuarios', 'usuarios.id', '=', 'inscripciones.id_usuario')
@@ -24,6 +25,7 @@ class InscritosController extends Controller
         return view('Inscritos.inscritosView', compact('t'));
     }
 
+    //codigo (PT07)
     public function showInscrito($inscrito){//"asistencia de $inscrito";
         $t = DB::table('asistencias')
             ->join('inscripciones', 'inscripciones.id', '=', 'asistencias.id_inscripciones')
@@ -35,6 +37,7 @@ class InscritosController extends Controller
         return view('Inscritos.showInscritoView', compact('t'));
     }
 
+    //codigo (PT08)
     public function showQR($inscrito){//"QR de $inscrito";
         $t = DB::table('usuarios')
             ->select('usuarios.nombre as unombre', 'usuarios.QR')
