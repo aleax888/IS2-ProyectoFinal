@@ -1,3 +1,4 @@
+<!-- UI15 -->
 @extends('layouts.plantilla')
 
 @section('title', 'Cierre de Caja por Evento')

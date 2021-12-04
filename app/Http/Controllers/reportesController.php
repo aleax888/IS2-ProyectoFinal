@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
+// codigo de controlador (CD07)
 class ReportesController extends Controller
 {
     // codigo (PT01)

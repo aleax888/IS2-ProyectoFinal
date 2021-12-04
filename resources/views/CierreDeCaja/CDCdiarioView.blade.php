@@ -1,3 +1,4 @@
+<!-- UI14 -->
 @extends('layouts.plantilla')
 
 @section('title', 'Cierre de Caja diario')

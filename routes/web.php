@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 // LogIn - Register - Home page
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\sessionController;
 
 //Reportes
 use App\Http\Controllers\ReportesController;
@@ -24,8 +25,10 @@ use App\Http\Controllers\ConfiguracionController;
 
 // LogIn - Register - Home
 Route::get('/{rol}', UsuarioController::class);
-//Route::get('/login', RegisterController::class);
-//Route::get('/register', LogInController::class);
+Route::get('/home/welcom', HomeController::class);
+Route::get('/login/form', [HomeController::class, 'login']);
+Route::post('/login/validate', [sessionController::class, 'loginValidate']);
+Route::get('/register/form', [HomeController::class, 'register']);
 
 //Reportes
 Route::get('reportes/seleccion', ReportesController::class);

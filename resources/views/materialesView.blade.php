@@ -1,3 +1,4 @@
+<!-- UI09 -->
 @extends('layouts.plantilla')
 
 @section('title', 'Reporte de Materiales')

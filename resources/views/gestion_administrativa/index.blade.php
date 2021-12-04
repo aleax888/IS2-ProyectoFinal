@@ -1,3 +1,4 @@
+<!-- UI18 -->
 @extends('layouts.plantilla')
 
 @section('title', 'Administracion')

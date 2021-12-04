@@ -1,3 +1,4 @@
+<!-- UI20 -->
 @extends('layouts.plantilla')
 
 @section('title', 'Reporte de Inscritos')

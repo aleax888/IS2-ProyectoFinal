@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
+// codigo de controlador (CD04)
 class EventoController extends Controller
 {
     /**

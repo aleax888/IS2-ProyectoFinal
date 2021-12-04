@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
 
+// codigo de controlador (CD01)
 class CierreDeCajaController extends Controller
 {
     // codigo (PT02)

@@ -1,3 +1,4 @@
+<!-- UI08 -->
 @extends('layouts.plantilla')
 
 @section('title', 'MaterialesAmbiente')

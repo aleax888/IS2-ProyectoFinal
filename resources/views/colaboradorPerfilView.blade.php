@@ -1,3 +1,4 @@
+<!-- UI03 -->
 @extends('layouts.plantilla')
 
 @section('title', 'Colaborador')

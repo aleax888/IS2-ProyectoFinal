@@ -1,3 +1,4 @@
+<!-- UI21 -->
 @extends('layouts.plantilla')
 
 @section('title', 'Asistencia de ' . $t[0]->unombre)

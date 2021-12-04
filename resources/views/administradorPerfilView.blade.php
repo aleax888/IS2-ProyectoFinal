@@ -1,3 +1,4 @@
+<!-- UI02 -->
 @extends('layouts.plantilla')
 
 @section('title', 'Administrador')

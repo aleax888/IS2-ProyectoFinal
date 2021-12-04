@@ -1,3 +1,4 @@
+<!-- UI19 -->
 @extends('layouts.plantilla')
 
 @section('title', 'Administracion')

@@ -1,3 +1,4 @@
+<!-- UI22 -->
 @extends('layouts.plantilla')
 
 @section('title', 'Codigo QR de ' . $t[0]->unombre)

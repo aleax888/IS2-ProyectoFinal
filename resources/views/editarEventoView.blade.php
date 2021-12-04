@@ -1,3 +1,4 @@
+<!-- UI06 -->
 @extends('layouts.plantilla')
 
 @section('title', 'editar evento')

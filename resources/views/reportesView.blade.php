@@ -1,3 +1,4 @@
+<!-- UI11 -->
 @extends('layouts.plantilla')
 
 @section('title', 'Reportes')

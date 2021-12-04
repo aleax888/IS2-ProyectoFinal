@@ -1,3 +1,4 @@
+<!-- UI12 -->
 @extends('layouts.plantilla')
 
 @section('title', 'Responsabilidades')

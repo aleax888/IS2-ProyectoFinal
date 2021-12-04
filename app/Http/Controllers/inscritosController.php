@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
+// codigo de controlador (CD05)
 class InscritosController extends Controller
 {
     //codigo (PT06)
