@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 // LogIn - Register - Home page
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\sessionController;
+use App\Http\Controllers\SessionController;
 
 //Reportes
 use App\Http\Controllers\ReportesController;
@@ -24,10 +24,10 @@ use App\Http\Controllers\ConfiguracionController;
 
 
 // LogIn - Register - Home
-Route::get('/{rol}', UsuarioController::class);
-Route::get('/home/welcom', HomeController::class);
+Route::get('/home/welcome', HomeController::class);
 Route::get('/login/form', [HomeController::class, 'login']);
-Route::post('/login/validate', [sessionController::class, 'loginValidate']);
+Route::post('/perfil/rol', [SessionController::class, 'loginValidate']);
+Route::get('/perfil/rol/{id}', [SessionController::class, 'perfil']);
 Route::get('/register/form', [HomeController::class, 'register']);
 
 //Reportes
@@ -59,6 +59,9 @@ Route::get('responsabilidades/seleccion', [UsuarioController::class, 'listarEven
 Route::get('responsabilidades/tomarAsistencia/{id_evento}', [UsuarioController::class, 'tomarAsistencia']);
 Route::get('responsabilidades/materialesAmbiente', [UsuarioController::class, 'materialesAmbiente']);
 
+//Inscripciones
+Route::get('eventos/seleccion', [UsuarioController::class, 'listarEventos2']);
+Route::get('preinscripcion/form/{id_evento}', [UsuarioController::class, 'preins']);
 
 
 

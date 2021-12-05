@@ -37,6 +37,24 @@ class UsuarioController extends Controller
         return view('responsabilidadesView', compact('t'));
     }
 
+    public function listarEventos2()
+    {
+        $t = DB::table('eventos')
+            ->select('eventos.nombre', 'eventos.id')
+            //->where('eventos.id_usuario','=',$id)
+            ->get();
+        return view('eventosPreView', compact('t'));
+    }
+
+    public function preins($id_evento)
+    {
+        $t = DB::table('eventos')
+            ->select('id', 'nombre', 'lugar', 'fecha_inicio', 'fecha_fin')
+            ->where('id','=',$id_evento)
+            ->get();
+        return view('preinscripcionView', compact('t'));
+    }
+
     //codigo (PT12)
     public function tomarAsistencia($id_evento)
     {

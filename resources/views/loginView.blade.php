@@ -31,7 +31,7 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="{{url('login/validate')}}" method="post" enctype="multipart/form-data">
+                        <form id="login-form" class="form" action="{{url('perfil/rol')}}" method="post" enctype="multipart/form-data">
                         @csrf
                             <h3 class="text-center text-info">Login</h3>
                             <div class="form-group">

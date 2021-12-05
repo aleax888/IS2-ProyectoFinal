@@ -27,7 +27,6 @@
 @endsection
 
 @section('content')
-    
     <a href="{{url('/reportes/inscritos')}}">
         <h3>Reporte de Inscritos</h3>
     </a> 
@@ -43,7 +42,7 @@
                 <th>Eventos</th>
             </tr>
             </thread>
-            @foreach ($t1 as $t)
+            @foreach ($t as $t)
                 <tr>
                     <td>
                         <a href="{{url('reportes/cierredecaja/evento/' . $t->id)}}">
@@ -54,22 +53,9 @@
             @endforeach
         </table>
         </div>
-    <h3>Cierre de Caja diario</h3>
-        <div style="width:30%">
-        <table class="table table-striped table-light" border="1">
-            <tr>
-                <th>Fechas</th>
-            </tr>
-                
-            @foreach ($t2 as $t)
-                <tr>
-                    <td>
-                        <a href="{{url('reportes/cierredecaja/diario/' . $t->fecha)}}">
-                            {{$t->fecha}}
-                        </a>
-                    </td>
-                </tr>
-            @endforeach
-        </table>
-        </div>
+    
+    <a href="{{url('reportes/cierredecaja/diario/' . date('Y-m-d'))}}">
+        <h3>Cierre de Caja diario</h3>
+    </a>
+        
 @endsection

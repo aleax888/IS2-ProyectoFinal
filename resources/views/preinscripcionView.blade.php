@@ -1,7 +1,6 @@
-<!-- UI10 -->
 @extends('layouts.plantilla')
 
-@section('title', 'Participante')
+@section('title', 'preinscripcion')
 
 @section('lista')
     <div class="container-fluid">
@@ -12,16 +11,18 @@
             <li class="nav-item">
                 <a class="nav-link" style="color: #8FBCBB" href="#">Certificados</a>
             </li>
+
         </ul>
     </div> 
 
 @endsection
 
 @section('content')
-<h1>Perfil de {{$t[0]->nombre}} {{$t[0]->apellido}}</h1>
-<h2>Correo: {{$t[0]->email}}</h2>
-<div>
-
-    <h1>{{$t[0]->QR}}</h1>
-</div>
+<h1>Preinscripcion</h1>
+<h3>Datos Evento</h3>
+<p>{{$t[0]->nombre}}</p>
+<p>{{$t[0]->lugar}}</p>
+<p>{{$t[0]->fecha_inicio}}</p>
+<p>{{$t[0]->fecha_fin}}</p>
+    
 @endsection

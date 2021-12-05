@@ -17,5 +17,10 @@
 @endsection
 
 @section('content')
-<h3>Bienvenidos XD</h3>
+<div style="margin:3%" >
+    <h1 class="text-center">Bienvenidos a Eventure</h1>
+    <div class="text-center" style="margin:2%" >
+        <img src="..\..\public\images\logoEventure.png" width="50%" height="50%" alt="Ayuda Diosito">
+    </div>
+</div>
 @endsection
