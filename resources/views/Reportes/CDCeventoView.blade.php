@@ -1,18 +1,19 @@
+<!-- UI15 -->
 @extends('layouts.plantilla')
 
-@section('title', 'adaptar evento')
+@section('title', 'Cierre de Caja por Evento')
 
 @section('lista')
     <div class="container-fluid">
         <ul class="nav navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" style="color: #8FBCBB" href="{{url('/reportes/seleccion')}}">Reportes</a>
+                <a class="nav-link" style="color: #DEC692" href="{{url('/reportes/seleccion')}}">Reportes</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" style="color: #8FBCBB" href="{{url('/GestionAdministrativa/Eventos')}}">Administracion</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="color: #DEC692" href="{{url('/configuracion/seleccion')}}">Configuracion</a>
+                <a class="nav-link" style="color: #8FBCBB" href="{{url('/configuracion/seleccion')}}">Configuracion</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" style="color: #8FBCBB" href="#">Caja</a>
@@ -26,5 +27,22 @@
 @endsection
 
 @section('content')
-    <h1>Adaptar Evento</h1>
+    <h1>Cierre de Caja de {{$t[0]->nombre}}</h1>
+    <table class="table table-striped table-light" border="1">
+
+    <tr>
+        <th>Gastos</th>
+        <th>Ingresos</th>
+        <th>fecha</th>
+    </tr>
+
+    @foreach ($t as $t)
+        <tr>
+            <td>{{$t->gmonto}}</td>
+            <td>{{$t->imonto}}</td>
+            <td>{{$t->fecha}}</td>
+        </tr>
+    @endforeach
+
+    </table>
 @endsection

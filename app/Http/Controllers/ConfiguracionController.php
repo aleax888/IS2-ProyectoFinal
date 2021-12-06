@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
+// codigo de controlador (CD03)
 class configuracionController extends Controller
 {
     // codigo (PT04)
@@ -15,6 +16,6 @@ class configuracionController extends Controller
         $t = DB::table('eventos')
             ->select('eventos.nombre', 'eventos.id')
             ->get();
-        return view('configuracionView', compact('t'));
+        return view('Configuracion.configuracionView', compact('t'));
     }
 }

@@ -1,6 +1,7 @@
+<!-- UI03 -->
 @extends('layouts.plantilla')
 
-@section('title', 'Participante')
+@section('title', 'Colaborador')
 
 @section('lista')
     <div class="container-fluid">
@@ -11,11 +12,19 @@
             <li class="nav-item">
                 <a class="nav-link" style="color: #8FBCBB" href="#">Certificados</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color: #8FBCBB" href="{{url('responsabilidades/seleccion/')}}">Responsabilidades</a>
+            </li>
         </ul>
     </div> 
 
 @endsection
 
 @section('content')
-<h3>Perfil Participante</h3>
+<h1>Perfil de {{$t[0]->nombre}} {{$t[0]->apellido}}</h1>
+<h2>Correo: {{$t[0]->email}}</h2>
+<div>
+
+    <h1>{{$t[0]->QR}}</h1>
+</div>
 @endsection

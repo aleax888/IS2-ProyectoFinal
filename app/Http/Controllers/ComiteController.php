@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Comite;
 use Illuminate\Http\Request;
 
+// codigo de controlador (CD02)
 class ComiteController extends Controller
 {
     /**

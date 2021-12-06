@@ -1,6 +1,7 @@
+<!-- UI14 -->
 @extends('layouts.plantilla')
 
-@section('title', 'Cierre de Caja por Evento')
+@section('title', 'Cierre de Caja diario')
 
 @section('lista')
     <div class="container-fluid">
@@ -26,22 +27,23 @@
 @endsection
 
 @section('content')
-    <h1>Cierre de Caja de {{$t[0]->nombre}}</h1>
-    <table class="table table-striped table-light" border="1">
+<h1>Cierre de Caja {{$fecha}}</h1>
 
+<table class="table table-striped table-light" border="1">
+
+<tr>
+    <th>Gastos</th>
+    <th>Ingresos</th>
+    <th>Evento</th>
+</tr>
+
+@foreach ($t as $t)
     <tr>
-        <th>Gastos</th>
-        <th>Ingresos</th>
-        <th>fecha</th>
+        <td>{{$t->gmonto}}</td>
+        <td>{{$t->imonto}}</td>
+        <td>{{$t->nombre}}</td>
     </tr>
+@endforeach
 
-    @foreach ($t as $t)
-        <tr>
-            <td>{{$t->gmonto}}</td>
-            <td>{{$t->imonto}}</td>
-            <td>{{$t->fecha}}</td>
-        </tr>
-    @endforeach
-
-    </table>
+</table>
 @endsection

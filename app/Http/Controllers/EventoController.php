@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
+// codigo de controlador (CD04)
 class EventoController extends Controller
 {
     /**
@@ -38,7 +39,7 @@ class EventoController extends Controller
         $t = DB::table('tipos_evento')
             ->select('tipos_evento.nombre', 'tipos_evento.id')
             ->get();
-        return view('crearEventoView', compact('t'));
+        return view('Configuracion.crearEventoView', compact('t'));
     }
 
     //codigo (PT16)
@@ -51,19 +52,19 @@ class EventoController extends Controller
 
         Evento::insert($datosEvento); 
         
-        return view('crearEventoView', compact('t'));
+        return view('Configuracion.crearEventoView', compact('t'));
     }
 
     //codigo (PT17)
     public function adaptarEvento()
     {
-        return view('adaptarEventoView');
+        return view('Configuracion.adaptarEventoView');
     }
 
     //codigo (PT18)
     public function editarEvento()
     {
-        return view('editarEventoView');
+        return view('Configuracion.editarEventoView');
     }
 
     /**

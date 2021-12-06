@@ -9,27 +9,22 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
+// codigo de controlador (CD09)
 class UsuarioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
     //codigo (PT10)
     public function __invoke($rol)
     {
         $model = ReportesController::class;
 
         if ($rol == "Participante")
-            return view('participantePerfilView');
+            return view('Perfiles.participantePerfilView');
         if ($rol == "Colaborador")
-            return view('colaboradorPerfilView');
+            return view('Perfiles.colaboradorPerfilView');
         if ($rol == "Administrador")
-            return view('administradorPerfilView');
+            return view('Perfiles.administradorPerfilView');
         if ($rol == "Encargado")
-            return view('encargadoPerfilView');
+            return view('Perfiles.encargadoPerfilView');
     }
 
     //codigo (PT11)
@@ -39,7 +34,25 @@ class UsuarioController extends Controller
             ->select('eventos.nombre', 'eventos.id')
             //->where('eventos.id_usuario','=',$id)
             ->get();
-        return view('responsabilidadesView', compact('t'));
+        return view('Asistencia.responsabilidadesView', compact('t'));
+    }
+
+    public function listarEventos2()
+    {
+        $t = DB::table('eventos')
+            ->select('eventos.nombre', 'eventos.id')
+            //->where('eventos.id_usuario','=',$id)
+            ->get();
+        return view('Inscripciones.eventosPreView', compact('t'));
+    }
+
+    public function preins($id_evento)
+    {
+        $t = DB::table('eventos')
+            ->select('id', 'nombre', 'lugar', 'fecha_inicio', 'fecha_fin')
+            ->where('id','=',$id_evento)
+            ->get();
+        return view('Inscripciones.preinscripcionView', compact('t'));
     }
 
     //codigo (PT12)
@@ -51,7 +64,7 @@ class UsuarioController extends Controller
             ->where('eventos.id','=',$id_evento)
             ->select('eventos.nombre as evento', 'eventos.id', 'usuarios.nombre as unombre', 'usuarios.apellido')
             ->get();
-        return view('tomaDeAsistenciaView', compact('t'));
+        return view('Asistencia.tomaDeAsistenciaView', compact('t'));
     }
 
     //codigo (PT13)
@@ -61,83 +74,9 @@ class UsuarioController extends Controller
             ->select('materiales.nombre', 'materiales.id')
             ->get();
             
-        return view('entregaDeMaterialAmbienteView', compact('t'));
+        return view('Asistencia.entregaDeMaterialAmbienteView', compact('t'));
     }
     
-
-    public function index()
-    {
-        //
-    }
-
-    
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Usuario  $usuario
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Usuario $usuario)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Usuario  $usuario
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Usuario $usuario)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Usuario  $usuario
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Usuario $usuario)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Usuario  $usuario
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Usuario $usuario)
-    {
-        //
-    }
-
     //codigo (PT14)
     public function mostrarUsuarios()
     {

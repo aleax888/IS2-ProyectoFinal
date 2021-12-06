@@ -1,6 +1,7 @@
+<!-- UI20 -->
 @extends('layouts.plantilla')
 
-@section('title', 'Cierre de Caja diario')
+@section('title', 'Reporte de Inscritos')
 
 @section('lista')
     <div class="container-fluid">
@@ -26,23 +27,37 @@
 @endsection
 
 @section('content')
-    <h1>Cierre de Caja {{$t[0]->fecha}}</h1>
-
+    <h1>Reporte de Inscritos</h1>
     <table class="table table-striped table-light" border="1">
 
-    <tr>
-        <th>Gastos</th>
-        <th>Ingresos</th>
-        <th>Evento</th>
-    </tr>
-    
-    @foreach ($t as $t)
         <tr>
-            <td>{{$t->gmonto}}</td>
-            <td>{{$t->imonto}}</td>
-            <td>{{$t->nombre}}</td>
+            <th>Nombre Completo del Inscrito</th>
+            <th>Nombre del Evento</th>
+            <th>Tipo de Paquete</th>
+            <th>Tipo de Inscrito</th>
+            <th>Fecha de Inscripcion</th>
         </tr>
-    @endforeach
-
+        
+        @foreach ($t as $t)
+            <tr>
+                <td>{{$t->unombre}} {{$t->apellido}}</td>
+                <td>{{$t->enombre}}</td>
+                <td>{{$t->pnombre}}</td>
+                <td>{{$t->tinombre}}</td>
+                <td>{{$t->fecha_inscripcion}}</td>
+                <td>
+                    <a href="{{url('reportes/inscritos/' . $t->id)}}">
+                        ver asistencia
+                    </a>
+                </td>
+                <td>
+                    <a href="{{url('reportes/inscritos/QR/' . $t->id)}}">
+                        ver QR
+                    </a>
+                </td>
+            </tr>
+        @endforeach
+    
     </table>
+
 @endsection

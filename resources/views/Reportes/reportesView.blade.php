@@ -1,6 +1,7 @@
+<!-- UI11 -->
 @extends('layouts.plantilla')
 
-@section('title', 'Asistencia de ' . $t[0]->unombre)
+@section('title', 'Reportes')
 
 @section('lista')
     <div class="container-fluid">
@@ -26,21 +27,35 @@
 @endsection
 
 @section('content')
-    <h1>Asistencia a Eventos de {{$t[0]->unombre}}</h1>
-
-    <table class="table table-striped table-light" border="1">
-
-        <tr>
-            <th>Actividad</th>
-            <th>Hora</th>
-        </tr>
-        
-        @foreach ($t as $t)
-            <tr>
-                <td>{{$t->anombre}}</td>
-                <td>{{$t->hora}}</td>
-            </tr>
-        @endforeach
+    <a href="{{url('/reportes/inscritos')}}">
+        <h3>Reporte de Inscritos</h3>
+    </a> 
     
-    </table>
+    <a href="{{url('/reportes/materiales')}}">
+        <h3>Reporte de Materiales</h3>
+    </a>
+    <h3>Cierre de Caja por Evento</h3>
+        <div style="width:30%">
+        <table class="table table-striped table-light" border="1">
+            <thread class = "thead-light">
+            <tr >
+                <th>Eventos</th>
+            </tr>
+            </thread>
+            @foreach ($t as $t)
+                <tr>
+                    <td>
+                        <a href="{{url('reportes/cierredecaja/evento/' . $t->id)}}">
+                            {{$t->nombre}}
+                        </a>
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+        </div>
+    
+    <a href="{{url('reportes/cierredecaja/diario/' . date('Y-m-d'))}}">
+        <h3>Cierre de Caja diario</h3>
+    </a>
+        
 @endsection

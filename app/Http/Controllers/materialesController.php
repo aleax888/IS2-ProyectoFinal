@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
+// codigo de controlador (CD06)
 class MaterialesController extends Controller
 {
     //codigo (PT09)
@@ -16,6 +17,6 @@ class MaterialesController extends Controller
             ->join('asistencias', 'asistencias.id_actividades', '=', 'actividades.id')
             ->select('materiales.nombre', 'materiales.cantidad', 'asistencias.cantidad_material', 'asistencias.fecha')
             ->get();
-        return view('materialesView', compact('t'));
+        return view('Reportes.materialesView', compact('t'));
     }
 }

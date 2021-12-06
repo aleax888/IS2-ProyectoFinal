@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Rol;
 use Illuminate\Http\Request;
 
+// codigo de controlador (CD08)
 class RolController extends Controller
 {
     /**

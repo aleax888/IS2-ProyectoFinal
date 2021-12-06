@@ -1,12 +1,13 @@
+<!-- UI02 -->
 @extends('layouts.plantilla')
 
-@section('title', 'Reporte de Materiales')
+@section('title', 'Administrador')
 
 @section('lista')
     <div class="container-fluid">
         <ul class="nav navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" style="color: #DEC692" href="{{url('/reportes/seleccion')}}">Reportes</a>
+                <a class="nav-link" style="color: #8FBCBB" href="{{url('/reportes/seleccion')}}">Reportes</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" style="color: #8FBCBB" href="{{url('/GestionAdministrativa/Eventos')}}">Administracion</a>
@@ -26,24 +27,10 @@
 @endsection
 
 @section('content')
-    <h1>Reporte de Materiales</h1>
-    <table class="table table-striped table-light" border="1">
+<h1>Perfil de {{$t[0]->nombre}} {{$t[0]->apellido}}</h1>
+<h2>Correo: {{$t[0]->email}}</h2>
+<div>
 
-    <tr>
-        <th>Nombre Material</th>
-        <th>Cantidad Adquirido</th>
-        <th>Cantidad entregado</th>
-        <th>Fecha</th>
-    </tr>
-
-    @foreach ($t as $t)
-        <tr>
-            <td>{{$t->nombre}}</td>
-            <td>{{$t->cantidad}}</td>
-            <td>{{$t->cantidad_material}}</td>
-            <td>{{$t->fecha}}</td>
-        </tr>
-    @endforeach
-
-    </table>
+    <h1>{{$t[0]->QR}}</h1>
+</div>
 @endsection

@@ -1,6 +1,7 @@
+<!-- UI12 -->
 @extends('layouts.plantilla')
 
-@section('title', 'TomadeAsistencia')
+@section('title', 'Responsabilidades')
 
 @section('lista')
     <div class="container-fluid">
@@ -20,28 +21,28 @@
 @endsection
 
 @section('content')
-<h3>Lista de Inscritos en: {{$t[0]->evento}}</h3>
-    <div style="width:30%">
+<h3>Lista de Eventos</h3>
+    <div style="width:60%">
         <table class="table table-striped table-light" border="1">
             <thread class = "thead-light">
                 <tr >
-                    <th>Inscritos</th>
-                    <th>Asistencia</th>
-                    <th>Material</th>
+                    <th>Eventos</th>
                 </tr>
             </thread>
             @foreach ($t as $t)
                 <tr>
                     <td>
-                        {{$t->unombre}} {{$t->apellido}}
+                        {{$t->nombre}}
                     </td>
                     <td>
-                        <input type="checkbox" name="" id = "" value="">
-                        <label for="html">presente</label><br>
+                        <a href="{{url('responsabilidades/tomarAsistencia/' . $t->id)}}">
+                            Tomar Asistencia
+                        </a>
                     </td>
                     <td>
-                        <input type="checkbox" name="" id = "" value="">
-                        <label for="html">entregado</label><br>
+                        <a href="{{url('responsabilidades/materialesAmbiente')}}">
+                            Entregar Materiales
+                        </a>
                     </td>
                 </tr>
             @endforeach

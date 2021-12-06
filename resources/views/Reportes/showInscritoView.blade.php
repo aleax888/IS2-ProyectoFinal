@@ -1,6 +1,7 @@
+<!-- UI21 -->
 @extends('layouts.plantilla')
 
-@section('title', 'Reporte de Inscritos')
+@section('title', 'Asistencia de ' . $t[0]->unombre)
 
 @section('lista')
     <div class="container-fluid">
@@ -26,37 +27,21 @@
 @endsection
 
 @section('content')
-    <h1>Reporte de Inscritos</h1>
+    <h1>Asistencia a Eventos de {{$t[0]->unombre}}</h1>
+
     <table class="table table-striped table-light" border="1">
 
         <tr>
-            <th>Nombre Completo del Inscrito</th>
-            <th>Nombre del Evento</th>
-            <th>Tipo de Paquete</th>
-            <th>Tipo de Inscrito</th>
-            <th>Fecha de Inscripcion</th>
+            <th>Actividad</th>
+            <th>Hora</th>
         </tr>
         
         @foreach ($t as $t)
             <tr>
-                <td>{{$t->unombre}} {{$t->apellido}}</td>
-                <td>{{$t->enombre}}</td>
-                <td>{{$t->pnombre}}</td>
-                <td>{{$t->tinombre}}</td>
-                <td>{{$t->fecha_inscripcion}}</td>
-                <td>
-                    <a href="{{url('reportes/inscritos/' . $t->id)}}">
-                        ver asistencia
-                    </a>
-                </td>
-                <td>
-                    <a href="{{url('reportes/inscritos/QR/' . $t->id)}}">
-                        ver QR
-                    </a>
-                </td>
+                <td>{{$t->anombre}}</td>
+                <td>{{$t->hora}}</td>
             </tr>
         @endforeach
     
     </table>
-
 @endsection

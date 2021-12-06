@@ -1,3 +1,4 @@
+<!-- UI16 -->
 @extends('layouts.plantilla')
 
 @section('title', 'Administracion')

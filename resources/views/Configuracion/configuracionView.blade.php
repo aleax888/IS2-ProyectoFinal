@@ -1,3 +1,4 @@
+<!-- UI04 -->
 @extends('layouts.plantilla')
 
 @section('title', 'Configuracion')
