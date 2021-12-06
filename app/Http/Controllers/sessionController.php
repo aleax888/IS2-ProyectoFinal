@@ -25,13 +25,13 @@ class sessionController extends Controller
         if ($t->count() == 1)
         {
             if ($aux == 1)
-                return view('participantePerfilView', compact('t'));
+                return view('Perfiles.participantePerfilView', compact('t'));
             if ($aux == 2)
-                return view('colaboradorPerfilView', compact('t'));
+                return view('Perfiles.colaboradorPerfilView', compact('t'));
             if ($aux == 3)
-                return view('administradorPerfilView', compact('t'));
+                return view('Perfiles.administradorPerfilView', compact('t'));
             if ($aux == 4)
-                return view('encargadoPerfilView', compact('t'));
+                return view('Perfiles.encargadoPerfilView', compact('t'));
         }
         else
             return "perfil invalido ¯\_(ツ)_/¯";
@@ -46,13 +46,13 @@ class sessionController extends Controller
         if ($t->count() == 1)
         {
             if ($aux == 1)
-                return view('participantePerfilView', compact('t'));
+                return view('Perfiles.participantePerfilView', compact('t'));
             if ($aux == 2)
-                return view('colaboradorPerfilView', compact('t'));
+                return view('Perfiles.colaboradorPerfilView', compact('t'));
             if ($aux == 3)
-                return view('administradorPerfilView', compact('t'));
+                return view('Perfiles.administradorPerfilView', compact('t'));
             if ($aux == 4)
-                return view('encargadoPerfilView', compact('t'));
+                return view('Perfiles.encargadoPerfilView', compact('t'));
         }
         else
             return "perfil invalido ¯\_(ツ)_/¯";

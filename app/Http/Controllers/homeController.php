@@ -12,16 +12,16 @@ class HomeController extends Controller
 {
     public function __invoke(){//"Cierre de Caja por Evento";
 
-        return view('homeView');
+        return view('Sesion.homeView');
     }
 
     public function login(){//"Cierre de Caja por Evento";
         
-        return view('loginView');
+        return view('Sesion.loginView');
     }
 
     public function register(){//"Cierre de Caja por Evento";
         
-        return view('registerView');
+        return view('Sesion.registerView');
     }
 }

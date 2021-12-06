@@ -18,13 +18,13 @@ class UsuarioController extends Controller
         $model = ReportesController::class;
 
         if ($rol == "Participante")
-            return view('participantePerfilView');
+            return view('Perfiles.participantePerfilView');
         if ($rol == "Colaborador")
-            return view('colaboradorPerfilView');
+            return view('Perfiles.colaboradorPerfilView');
         if ($rol == "Administrador")
-            return view('administradorPerfilView');
+            return view('Perfiles.administradorPerfilView');
         if ($rol == "Encargado")
-            return view('encargadoPerfilView');
+            return view('Perfiles.encargadoPerfilView');
     }
 
     //codigo (PT11)
@@ -34,7 +34,7 @@ class UsuarioController extends Controller
             ->select('eventos.nombre', 'eventos.id')
             //->where('eventos.id_usuario','=',$id)
             ->get();
-        return view('responsabilidadesView', compact('t'));
+        return view('Asistencia.responsabilidadesView', compact('t'));
     }
 
     public function listarEventos2()
@@ -43,7 +43,7 @@ class UsuarioController extends Controller
             ->select('eventos.nombre', 'eventos.id')
             //->where('eventos.id_usuario','=',$id)
             ->get();
-        return view('eventosPreView', compact('t'));
+        return view('Inscripciones.eventosPreView', compact('t'));
     }
 
     public function preins($id_evento)
@@ -52,7 +52,7 @@ class UsuarioController extends Controller
             ->select('id', 'nombre', 'lugar', 'fecha_inicio', 'fecha_fin')
             ->where('id','=',$id_evento)
             ->get();
-        return view('preinscripcionView', compact('t'));
+        return view('Inscripciones.preinscripcionView', compact('t'));
     }
 
     //codigo (PT12)
@@ -64,7 +64,7 @@ class UsuarioController extends Controller
             ->where('eventos.id','=',$id_evento)
             ->select('eventos.nombre as evento', 'eventos.id', 'usuarios.nombre as unombre', 'usuarios.apellido')
             ->get();
-        return view('tomaDeAsistenciaView', compact('t'));
+        return view('Asistencia.tomaDeAsistenciaView', compact('t'));
     }
 
     //codigo (PT13)
@@ -74,7 +74,7 @@ class UsuarioController extends Controller
             ->select('materiales.nombre', 'materiales.id')
             ->get();
             
-        return view('entregaDeMaterialAmbienteView', compact('t'));
+        return view('Asistencia.entregaDeMaterialAmbienteView', compact('t'));
     }
     
     //codigo (PT14)

@@ -23,7 +23,7 @@ class InscritosController extends Controller
                     , 'tipos_inscrito.nombre as tinombre', 'inscripciones.fecha_inscripcion'
                     , 'eventos.nombre as enombre', 'usuarios.id', 'usuarios.QR')
             ->get();
-        return view('Inscritos.inscritosView', compact('t'));
+        return view('Reportes.inscritosView', compact('t'));
     }
 
     //codigo (PT07)
@@ -35,7 +35,7 @@ class InscritosController extends Controller
             ->select('usuarios.nombre as unombre', 'usuarios.apellido', 'asistencias.hora', 'actividades.nombre as anombre')
             ->where('usuarios.id', '=', $inscrito)
             ->get();
-        return view('Inscritos.showInscritoView', compact('t'));
+        return view('Reportes.showInscritoView', compact('t'));
     }
 
     //codigo (PT08)
@@ -45,6 +45,6 @@ class InscritosController extends Controller
             ->where('usuarios.id', '=', $inscrito)
             ->get();
 
-        return view('Inscritos.showQRView', compact('t'));
+        return view('Reportes.showQRView', compact('t'));
     }
 }

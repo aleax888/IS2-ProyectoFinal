@@ -16,6 +16,6 @@ class ReportesController extends Controller
             ->select('eventos.nombre', 'eventos.id')
             ->get();
 
-        return view('reportesView', compact('t'));
+        return view('Reportes.reportesView', compact('t'));
     }
 }

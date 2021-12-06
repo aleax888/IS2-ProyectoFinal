@@ -16,6 +16,6 @@ class configuracionController extends Controller
         $t = DB::table('eventos')
             ->select('eventos.nombre', 'eventos.id')
             ->get();
-        return view('configuracionView', compact('t'));
+        return view('Configuracion.configuracionView', compact('t'));
     }
 }

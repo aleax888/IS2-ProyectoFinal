@@ -17,6 +17,6 @@ class MaterialesController extends Controller
             ->join('asistencias', 'asistencias.id_actividades', '=', 'actividades.id')
             ->select('materiales.nombre', 'materiales.cantidad', 'asistencias.cantidad_material', 'asistencias.fecha')
             ->get();
-        return view('materialesView', compact('t'));
+        return view('Reportes.materialesView', compact('t'));
     }
 }

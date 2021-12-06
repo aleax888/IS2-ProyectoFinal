@@ -27,23 +27,23 @@
 @endsection
 
 @section('content')
-    <h1>Cierre de Caja {{$t[0]->fecha}}</h1>
+<h1>Cierre de Caja {{$fecha}}</h1>
 
-    <table class="table table-striped table-light" border="1">
+<table class="table table-striped table-light" border="1">
 
+<tr>
+    <th>Gastos</th>
+    <th>Ingresos</th>
+    <th>Evento</th>
+</tr>
+
+@foreach ($t as $t)
     <tr>
-        <th>Gastos</th>
-        <th>Ingresos</th>
-        <th>Evento</th>
+        <td>{{$t->gmonto}}</td>
+        <td>{{$t->imonto}}</td>
+        <td>{{$t->nombre}}</td>
     </tr>
-    
-    @foreach ($t as $t)
-        <tr>
-            <td>{{$t->gmonto}}</td>
-            <td>{{$t->imonto}}</td>
-            <td>{{$t->nombre}}</td>
-        </tr>
-    @endforeach
+@endforeach
 
-    </table>
+</table>
 @endsection
