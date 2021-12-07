@@ -545,7 +545,6 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  background-color: #c7dede;
 }
 
 @media (min-width: 576px) {
@@ -10022,6 +10021,3 @@ h3 {
   }
 }
 
-.contenedor{
-  background-color: #c7dede;
-}

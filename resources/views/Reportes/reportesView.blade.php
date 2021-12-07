@@ -70,15 +70,15 @@
     
     <h3>Cierre de Caja por Evento</h3>
         <div style="width:750px">
-        <table class="table table-striped table-light" border="1">
+        <table class="table table-striped table-light" border="1" >
             <thread class = "thead-light">
-            <tr >
+            <tr style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;" >
                 <th>Eventos</th>
             </tr>
             </thread>
             @foreach ($t as $t)
-                <tr>
-                    <td>
+                <tr style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">
+                    <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">
                         <a href="{{url('reportes/cierredecaja/evento/' . $t->id)}}">
                             {{$t->nombre}}
                         </a>

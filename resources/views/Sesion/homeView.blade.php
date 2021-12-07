@@ -17,8 +17,7 @@
 @endsection
 
 @section('content')
-<div class = "contenedor" style = " background-color: #c7dede; 
-     align: center;">
+<div class = "contenedor" style = " align: center; background-color:#000" >
 <div style= "margin:5%">
     <h1 class="text-center"style= "color:#5e81ac; font-size:500" >BIENVENIDOS A EVENTURE</h1>
     <div class="text-center" style="margin:2%" >

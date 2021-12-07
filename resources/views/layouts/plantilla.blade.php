@@ -13,7 +13,7 @@
 <body style="background-color: #eef2f9">
     <nav nav class="nav navbar navbar-expand-sm navbar-light" style="background-color: #c7dede;">
         <i class="fa fa-fw fa-circle" style="font-size: 30px; color: #8fbcbb" ></i>
-        <a class="navbar-brand mb-0 h1" style="color: #5e81ac">EVENTURE</a>
+        <a href="{{url('home/welcome')}}" class="navbar-brand mb-0 h1" style="color: #5e81ac">EVENTURE</a>
         @yield('lista')
         
     </nav>
