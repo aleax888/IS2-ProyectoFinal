@@ -10,16 +10,16 @@
                 <a class="nav-link" style="color: #DEC692" href="{{url('/reportes/seleccion')}}">Reportes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="color: #8FBCBB" href="{{url('/GestionAdministrativa/Eventos')}}">Administracion</a>
+                <a class="nav-link" style="color: #5e81ac" href="{{url('/GestionAdministrativa/Eventos')}}">Administracion</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="color: #8FBCBB" href="{{url('/configuracion/seleccion')}}">Configuracion</a>
+                <a class="nav-link" style="color: #5e81ac" href="{{url('/configuracion/seleccion')}}">Configuracion</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="color: #8FBCBB" href="#">Caja</a>
+                <a class="nav-link" style="color: #5e81ac" href="#">Caja</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="color: #8FBCBB" href="#">Asistencia</a>
+                <a class="nav-link" style="color: #5e81ac" href="#">Asistencia</a>
             </li>
         </ul>
     </div> 

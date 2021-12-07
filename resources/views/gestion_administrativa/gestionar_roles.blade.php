@@ -28,13 +28,13 @@
 
 @section('content')
     <h1>Gestionar Roles</h1>
-<table class="table table-light" border = 1>
+<table class="table table-light" border = 1 width= "100%" style="border-color:#c7dede; border: 1px solid #c7dede;">
     <thead class = "thead-light">
         <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Email</th>
-            <th>Rol</th>
+            <th style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;"><b>Nombre</b></th>
+            <th style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;"><b>Apellido</b></th>
+            <th style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;"><b>Email</b></th>
+            <th style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;"><b>Rol</bS></th>
         </tr>
     </thead>
 
@@ -42,11 +42,11 @@
         
             @foreach ($t1 as $usuario)    
             <tr>
-                <td>{{$usuario->unombre}}</td>
-                <td>{{$usuario->apellido}}</td>
-                <td>{{$usuario->email}}</td>
+                <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;"><b>{{$usuario->unombre}}</b></td>
+                <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">{{$usuario->apellido}}</td>
+                <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">{{$usuario->email}}</td>
                 
-                <td>
+                <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">
                 <form action="{{url('GestionAdministrativa/GestionarRoles/'. $id_evento)}}" method ="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" value="{{$usuario->id}}">
@@ -66,9 +66,7 @@
                     <input type="submit" name="guardar" id="guardar">
                 </form>
                 </td>
-                <td>
                 
-                </td>
             </tr>
             
             @endforeach
