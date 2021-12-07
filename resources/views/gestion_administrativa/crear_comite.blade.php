@@ -38,7 +38,7 @@
             <div class="divider-custom-line"></div>
         </div>
 <div class="row justify-content-center" width="10%">
-   <div class="col-lg-8 col-xl-7">
+   <div class="col-lg-3 col-xl-3.5">
         <div>
           <div class="form-floating mb-3">
                  <label for="nombreComite"> Nombre </label>
@@ -48,7 +48,7 @@
         <div>
           <div class="form-floating mb-3">
                  <label for="NroIntegrantes"> Nro Integrantes </label>
-                 <input class="form-control"  type="number" name="nro_inte" id = "NroIntegrantes"/>  
+                 <input class="form-control"  type="number" name="nro_inte" id = "NroIntegrantes" placeholder="Ingresa el numero de Participantes..."/>  
             </div>
         </div>
         <div>
