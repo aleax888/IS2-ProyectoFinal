@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
-// codigo de controlador (CD05)
 class InscritosController extends Controller
 {
     //codigo (PT06)
@@ -23,10 +22,11 @@ class InscritosController extends Controller
                     , 'tipos_inscrito.nombre as tinombre', 'inscripciones.fecha_inscripcion'
                     , 'eventos.nombre as enombre', 'usuarios.id', 'usuarios.QR')
             ->get();
-        return view('Reportes.inscritosView', compact('t'));
+        return view('Inscritos.inscritosView', compact('t'));
     }
 
-    //codigo (PT07)
+    //codigo (PT07) 
+    //Esta Funcion consulta por los inscritos en la base de datos
     public function showInscrito($inscrito){//"asistencia de $inscrito";
         $t = DB::table('asistencias')
             ->join('inscripciones', 'inscripciones.id', '=', 'asistencias.id_inscripciones')
@@ -35,7 +35,7 @@ class InscritosController extends Controller
             ->select('usuarios.nombre as unombre', 'usuarios.apellido', 'asistencias.hora', 'actividades.nombre as anombre')
             ->where('usuarios.id', '=', $inscrito)
             ->get();
-        return view('Reportes.showInscritoView', compact('t'));
+        return view('Inscritos.showInscritoView', compact('t'));
     }
 
     //codigo (PT08)
@@ -45,6 +45,6 @@ class InscritosController extends Controller
             ->where('usuarios.id', '=', $inscrito)
             ->get();
 
-        return view('Reportes.showQRView', compact('t'));
+        return view('Inscritos.showQRView', compact('t'));
     }
 }

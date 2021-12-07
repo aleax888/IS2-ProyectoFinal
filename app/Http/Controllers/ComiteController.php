@@ -6,7 +6,6 @@ namespace App\Http\Controllers;
 use App\Models\Comite;
 use Illuminate\Http\Request;
 
-// codigo de controlador (CD02)
 class ComiteController extends Controller
 {
     /**
@@ -32,7 +31,7 @@ class ComiteController extends Controller
     {
         //
     }
-
+ // crea un comite
     /**
      * Store a newly created resource in storage.
      *

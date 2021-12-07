@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
-@charset "UTF-8";
+/*@charset "UTF-8";
 /*!
  * Bootstrap v4.6.1 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -545,6 +545,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  background-color: #c7dede;
 }
 
 @media (min-width: 576px) {
@@ -3987,6 +3988,7 @@ input[type=button].btn-block {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+
 }
 .navbar-brand {
   display: inline-block;
@@ -10018,4 +10020,8 @@ h3 {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+.contenedor{
+  background-color: #c7dede;
 }

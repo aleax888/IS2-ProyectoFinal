@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <ul class="nav navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" style="color: #8FBCBB" href="{{url('/login/form')}}">Log In</a>
+                <a class="nav-link" style="color: #5e81ac" href="{{url('/login/form')}}">Log In</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" style="color: #DEC692" href="#">Register</a>
@@ -58,4 +58,11 @@
             </div>
         </div>
     </div>
+    <footer style="display: table;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px">
+    <p>© DevCode-2021 Todos los derechos reservados UCSP</p>
+</footer>
 @endsection

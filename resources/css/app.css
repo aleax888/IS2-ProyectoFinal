@@ -258,3 +258,10 @@ h2 {
   #icon {
     width:60%;
   }
+.footer
+{
+    margin-top:50px;
+    width:100%;
+    height:200px;
+    background-color:red;
+}

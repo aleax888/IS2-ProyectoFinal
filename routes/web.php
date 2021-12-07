@@ -22,7 +22,6 @@ use App\Http\Controllers\ComiteController;
 use App\Http\Controllers\ConfiguracionController;
 
 
-
 // LogIn - Register - Home
 Route::get('/home/welcome', HomeController::class);
 Route::get('/login/form', [HomeController::class, 'login']);
