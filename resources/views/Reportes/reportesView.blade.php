@@ -68,7 +68,7 @@
                 <tr style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">
                     <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">
                         <a href="{{url('reportes/cierredecaja/evento/' . $t->id)}}">
-                            {{$t->nombre}}
+                           <b>{{$t->nombre}}</b>
                         </a>
                     </td>
                 </tr>
