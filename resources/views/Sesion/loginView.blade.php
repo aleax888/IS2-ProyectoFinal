@@ -27,7 +27,7 @@
     </div>
     
         <!-- <h3 class="text-center text-white pt-5">Login form</h3> -->
-        <div class="container"  >
+        <div class="container" style="background-color:#eef2f9" >
             <div id="login-row" class="row justify-content-center align-items-center" style ="margin:5%">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">

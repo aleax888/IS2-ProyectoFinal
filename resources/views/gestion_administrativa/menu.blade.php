@@ -28,7 +28,7 @@
 
 @section('content')
     <section class="page-section portfolio" id="portfolio">
-            <div class="container" style="margin-top:5%;" >
+            <div class="container" style="margin-top:5%; background-color:#eef2f9" >
                 <!-- Section Heading-->
                 <h1 class="page-section-heading text-center text-uppercase text-secondary mb-0">Evento: {{$dataEvento->nombre}}</h1>
                 <!-- Grid Items-->

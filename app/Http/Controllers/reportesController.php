@@ -15,7 +15,6 @@ class ReportesController extends Controller
         $t = DB::table('eventos')
             ->select('eventos.nombre', 'eventos.id')
             ->get();
-
         return view('Reportes.reportesView', compact('t'));
     }
 }

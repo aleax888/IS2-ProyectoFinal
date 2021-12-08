@@ -28,36 +28,24 @@
 
 @section('content')
 <div style="display:inline">
-<div class="container" style= "float:left " width="70%">
-                <div class="text-center" style="margin-top:100px">
-                    <h2 class="section-heading text-uppercase">EVENTOS</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="img-thumbnail" width="350px" heigth="350px" src="../images/img1.jpeg" alt="..." />
-                            <h3>World Travel Market London (WTM) 2021</h3>
-                           
-                        </div>
+    <div class="container" style= "float:left; background-color:#eef2f9; " width="50%">
+                    <div class="text-center" style="margin-top:100px">
+                        <h2 class="section-heading text-uppercase">EVENTOS</h2>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="img-thumbnail" width="350px" heigth="350px" src="../images/img2.jpeg" alt="..." />
-                            <h3>MVNOs World Congress 2021</h3>
-                            
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="img-thumbnail" width="350px" heigth="350px" src="../images/img3.jpeg" alt="..." />
-                            <h3>Conference Partners Evolution 2021</h3>
-                            
-                        </div>
+                    <div class="row">
+                
+                @foreach ($t as $evento)
+                <div class="col-lg-4">
+                            <div class="team-member">
+                             <img class="img-thumbnail" width="330px" heigth="330px" src='../images/{{$evento->id}}.jpeg' alt="..." />
+                             <h3><b>{{$evento->nombre}}</b></h3>
+        
                     </div>
                 </div>
-            </div>
-    <div>
-</div>        
+                @endforeach
+                    </div>
+    </div>
+</div>   
 <div style = "float:right; background-color:#c7dede; margin:6px" width="50%" >      
     <a href="{{url('/reportes/inscritos')}}">
         <h3>Reporte de Inscritos</h3>
@@ -70,7 +58,7 @@
     
     <h3>Cierre de Caja por Evento</h3>
         <div style="width:750px">
-        <table class="table table-striped table-light" border="1" >
+        <table class="table table-striped table-light" border="1" width= "100%" style="border-color:#c7dede; border: 1px solid #c7dede;" >
             <thread class = "thead-light">
             <tr style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;" >
                 <th>Eventos</th>
