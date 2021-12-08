@@ -27,7 +27,8 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="" method="post">
+                        <form id="login-form" class="form" action="{{url('register/form')}}" method="post" enctype="multipart/form-data">
+                        @csrf
                             <h3 class="text-center text-info">Register</h3>
                             <div class="form-group">
                                 <label for="nombres" class="text-info">Nombres:</label><br>

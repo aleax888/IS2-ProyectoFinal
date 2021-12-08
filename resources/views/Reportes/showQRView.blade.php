@@ -28,5 +28,6 @@
 
 @section('content')
     <h1>Codigo QR de {{$t[0]->unombre}}</h1>
+    {!! QrCode::size(250)->generate($t[0]->email); !!} 
     {{$t[0]->QR}}
 @endsection

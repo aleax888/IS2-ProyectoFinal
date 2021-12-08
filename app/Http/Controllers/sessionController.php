@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 
 use App\Models\Rol;
 use App\Models\Usuario;
+
+//use SimpleSoftwareIO\QrCode\Facade\QrCode;
+use QrCode;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -56,6 +60,32 @@ class sessionController extends Controller
         }
         else
             return "perfil invalido ¯\_(ツ)_/¯";
+    }
+
+    public function register(){
+
+        //return QrCode::generate('Codigo QR de Fulano');
+
+        $datos = request()->except('_token', 'submit');
+        
+        $t = DB::table('usuarios')
+            ->select('email')
+            ->where('email','=', $datos['correo'])
+            ->get();
+        if ($t->count() == 1)
+            return "correo invalido ¯\_(ツ)_/¯";
+        
+        DB::table('usuarios')->insert([
+            'QR' => 'QR_text',
+            'nombre' => request()->input('nombres'),
+            'apellido' => request()->input('apellidos'),
+            'email' => request()->input('correo'),
+            'password' => request()->input('password'),
+            'id_rol' => '1',
+        ]);
+        
+        return view('Sesion.registerView');
+        
     }
 
     public function destroy(){

@@ -26,9 +26,10 @@ use App\Http\Controllers\ConfiguracionController;
 // LogIn - Register - Home
 Route::get('/home/welcome', HomeController::class);
 Route::get('/login/form', [HomeController::class, 'login']);
+//Route::get('/perfil/rol/{id}', [SessionController::class, 'perfil']);
 Route::post('/perfil/rol', [SessionController::class, 'loginValidate']);
-Route::get('/perfil/rol/{id}', [SessionController::class, 'perfil']);
 Route::get('/register/form', [HomeController::class, 'register']);
+Route::post('/register/form', [SessionController::class, 'register']);
 
 //Reportes
 Route::get('reportes/seleccion', ReportesController::class);
@@ -60,8 +61,12 @@ Route::get('responsabilidades/tomarAsistencia/{id_evento}', [UsuarioController::
 Route::get('responsabilidades/materialesAmbiente', [UsuarioController::class, 'materialesAmbiente']);
 
 //Inscripciones
-Route::get('eventos/seleccion', [UsuarioController::class, 'listarEventos2']);
-Route::get('preinscripcion/form/{id_evento}', [UsuarioController::class, 'preins']);
+Route::get('eventos/seleccion/{id_usuario}', [UsuarioController::class, 'listarEventos2']);
+Route::post('eventos/seleccion', [UsuarioController::class, 'preins']);
+Route::get('preinscripciones/seleccion/{id_usuario}', [UsuarioController::class, 'verPreinscripciones']);
+Route::get('inscripcion/form/{id_usuario}/{id_evento}', [UsuarioController::class, 'inscripcion']);
+
+// -----  Route::get('preinscripcion/form/{id_usuario}', [UsuarioController::class, 'preins']);
 
 
 
