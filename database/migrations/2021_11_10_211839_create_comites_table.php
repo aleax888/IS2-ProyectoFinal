@@ -19,6 +19,8 @@ class CreateComitesTable extends Migration
             
             $table->string('nombre');
             $table->integer('nro_inte');
+
+            $table->timestamps();
         });
     }
 

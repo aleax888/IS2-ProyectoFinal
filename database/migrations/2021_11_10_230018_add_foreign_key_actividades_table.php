@@ -13,11 +13,11 @@ class AddForeignKeyActividadesTable extends Migration
      */
     public function up()
     {
-        Schema::table('inscripciones', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->bigInteger('id_actividad')->unsigned();
-            $table->foreign('id_actividad')->references('id')->on('actividades');
-        });
+        // Schema::table('inscripciones', function (Blueprint $table) {
+        //     $table->engine = 'InnoDB';
+        //     $table->bigInteger('id_actividad')->unsigned();
+        //     $table->foreign('id_actividad')->references('id')->on('actividades');
+        // });
 
         Schema::table('materiales', function (Blueprint $table) {
             $table->engine = 'InnoDB';

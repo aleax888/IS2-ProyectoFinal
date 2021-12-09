@@ -18,8 +18,10 @@ class CreateActividadesTable extends Migration
             $table->id();
 
             $table->string('nombre');
-            $table->timestamp('fecha')->nullable();
-            $table->timestamp('hora')->nullable();
+            $table->date('fecha');
+            $table->time('hora');
+
+            $table->timestamps();
         });
     }
 

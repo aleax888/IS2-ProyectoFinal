@@ -19,6 +19,8 @@ class CreatePromocionesTable extends Migration
 
             $table->string('nombre');
             $table->integer('descuento');
+
+            $table->timestamps();
         });
     }
 

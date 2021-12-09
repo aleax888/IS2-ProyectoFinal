@@ -16,6 +16,7 @@ class CreateActividadesPaquetesTable extends Migration
         Schema::create('actividades_paquetes', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
+            $table->timestamps();
         });
     }
 

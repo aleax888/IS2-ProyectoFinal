@@ -19,8 +19,10 @@ class CreateEventosTable extends Migration
             
             $table->string('nombre');
             $table->string('lugar');
-            $table->timestamp('fecha_inicio')->nullable();
-            $table->timestamp('fecha_fin')->nullable();
+            $table->date('fecha_inicio');
+            $table->date('fecha_fin');
+
+            $table->timestamps();
         });
     }
 

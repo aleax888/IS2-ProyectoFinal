@@ -18,7 +18,11 @@ class CreateAsistenciasTable extends Migration
             $table->id();
             
             $table->string('material');
-            $table->timestamp('hora')->nullable();
+            $table->integer('cantidad_material');
+            $table->time('hora');
+            $table->date('fecha');
+
+            $table->timestamps();
         });
     }
 

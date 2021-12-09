@@ -16,7 +16,10 @@ class CreateTiposEventoTable extends Migration
         Schema::create('tipos_evento', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
+
             $table->string('nombre');
+
+            $table->timestamps();
         });
     }
 

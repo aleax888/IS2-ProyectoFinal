@@ -16,7 +16,12 @@ class CreateIngresosTable extends Migration
         Schema::create('ingresos', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
+
             $table->integer('num_transaccion');
+            $table->date('fecha');
+            $table->integer('monto');
+            
+            $table->timestamps();
         });
     }
 

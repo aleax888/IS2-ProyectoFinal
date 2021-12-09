@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+
+// codigo de controlador (CD07)
 class ReportesController extends Controller
 {
-    public function __invoke(){
-        return view('reportesView');//"Pagina Reportes";
+    // codigo (PT01)
+    public function __invoke(){//"Pagina Reportes";
+        $t = DB::table('eventos')
+            ->select('eventos.nombre', 'eventos.id')
+            ->get();
+        return view('Reportes.reportesView', compact('t'));
     }
 }

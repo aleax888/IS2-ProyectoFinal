@@ -17,7 +17,9 @@ class CreatePreinscripcionesTable extends Migration
             $table->engine = 'InnoDB';
             $table->id();
 
-            $table->timestamp('fecha_preinscripcion')->nullable();
+            $table->date('fecha_preinscripcion');
+
+            $table->timestamps();
         });
     }
 

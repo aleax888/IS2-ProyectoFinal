@@ -16,9 +16,12 @@ class CreateAmbientesTable extends Migration
         Schema::create('ambientes', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
+
             $table->string('nombre');
             $table->string('ubicacion');
             $table->integer('capacidad');
+
+            $table->timestamps();
         });
     }
 

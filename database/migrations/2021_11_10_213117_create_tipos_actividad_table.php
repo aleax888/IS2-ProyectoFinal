@@ -16,7 +16,10 @@ class CreateTiposActividadTable extends Migration
         Schema::create('tipos_actividad', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
+
             $table->string('nombre');
+
+            $table->timestamps();
         });
     }
 
