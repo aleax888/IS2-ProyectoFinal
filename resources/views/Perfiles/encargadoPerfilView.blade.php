@@ -1,4 +1,5 @@
 <!-- UI07 -->
+
 @extends('layouts.plantilla')
 
 @section('title', 'Encargado')
