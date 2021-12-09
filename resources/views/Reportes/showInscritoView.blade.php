@@ -29,17 +29,17 @@
 @section('content')
     <h1>Asistencia a Eventos de {{$t[0]->unombre}}</h1>
 
-    <table class="table table-striped table-light" border="1">
+    <table class="table table-striped table-light" border="1" width= "100%" style="border-color:#c7dede; border: 1px solid #c7dede;">
 
         <tr>
-            <th>Actividad</th>
-            <th>Hora</th>
+            <th style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">Actividad</th>
+            <th style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">Hora</th>
         </tr>
         
         @foreach ($t as $t)
             <tr>
-                <td>{{$t->anombre}}</td>
-                <td>{{$t->hora}}</td>
+                <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">{{$t->anombre}}</td>
+                <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">{{$t->hora}}</td>
             </tr>
         @endforeach
     
