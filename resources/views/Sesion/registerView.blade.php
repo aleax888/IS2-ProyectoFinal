@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <ul class="nav navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" style="color: #8FBCBB" href="{{url('/login/form')}}">Log In</a>
+                <a class="nav-link" style="color: #5e81ac" href="{{url('/login/form')}}">Log In</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" style="color: #DEC692" href="#">Register</a>
@@ -23,7 +23,7 @@
     </div>
     <div id="login">
         <!-- <h3 class="text-center text-white pt-5">Register Form</h3> -->
-        <div class="container">
+        <div class="container" style="background-color:#eef2f9">
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
@@ -59,4 +59,11 @@
             </div>
         </div>
     </div>
+    <footer style="display: table;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px">
+    <p>© DevCode-2021 Todos los derechos reservados UCSP</p>
+</footer>
 @endsection
