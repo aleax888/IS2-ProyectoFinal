@@ -41,7 +41,7 @@ class InscritosController extends Controller
     //codigo (PT08)
     public function showQR($inscrito){//"QR de $inscrito";
         $t = DB::table('usuarios')
-            ->select('usuarios.nombre as unombre', 'usuarios.QR')
+            ->select('usuarios.nombre as unombre', 'usuarios.QR', 'usuarios.email')
             ->where('usuarios.id', '=', $inscrito)
             ->get();
 

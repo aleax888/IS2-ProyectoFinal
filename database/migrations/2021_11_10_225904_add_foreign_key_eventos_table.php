@@ -18,6 +18,12 @@ class AddForeignKeyEventosTable extends Migration
             $table->bigInteger('id_evento')->unsigned();
             $table->foreign('id_evento')->references('id')->on('eventos');
         });
+
+        Schema::table('preinscripciones', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->bigInteger('id_evento')->unsigned();
+            $table->foreign('id_evento')->references('id')->on('eventos');
+        });
         
         Schema::table('gastos', function (Blueprint $table) {
             $table->engine = 'InnoDB';

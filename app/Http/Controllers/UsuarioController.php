@@ -37,22 +37,74 @@ class UsuarioController extends Controller
         return view('Asistencia.responsabilidadesView', compact('t'));
     }
 
-    public function listarEventos2()
+    public function listarEventos2($id_usuario)
     {
         $t = DB::table('eventos')
-            ->select('eventos.nombre', 'eventos.id')
-            //->where('eventos.id_usuario','=',$id)
+            ->select('eventos.nombre', 'eventos.id', DB::raw("(CASE 
+            WHEN (SELECT id_evento from preinscripciones 
+                WHERE id_usuario ='$id_usuario'and id_evento = eventos.id) 
+                THEN 1 
+            ELSE 0 
+            END) as pre"))
             ->get();
-        return view('Inscripciones.eventosPreView', compact('t'));
+
+        return view('Inscripciones.eventosPreView', compact('t', 'id_usuario'));
     }
 
-    public function preins($id_evento)
+    public function preins()
+    {
+        $datos = request()->except('_token', 'guardar');
+        $id_usuario = request()->input('idu');
+        DB::table('preinscripciones')->insert([
+            'fecha_preinscripcion' => date('y-m-d'),
+            'id_evento' => $datos['ide'],
+            'id_usuario' => $datos['idu'],
+            
+        ]);
+        
+        $t = DB::table('eventos')
+            ->select('eventos.nombre', 'eventos.id', DB::raw("(CASE 
+            WHEN (SELECT id_evento from preinscripciones 
+                WHERE id_usuario ='$id_usuario'and id_evento = eventos.id) 
+                THEN 1 
+            ELSE 0 
+            END) as pre"))
+            ->get();
+
+        return view('Inscripciones.eventosPreView', compact('t', 'id_usuario'));
+    }
+
+    public function verPreinscripciones($id_usuario)
     {
         $t = DB::table('eventos')
-            ->select('id', 'nombre', 'lugar', 'fecha_inicio', 'fecha_fin')
+            ->select('eventos.nombre', 'eventos.id', 'preinscripciones.id_usuario')
+            ->join('preinscripciones','preinscripciones.id_evento','=','eventos.id')
+            ->where('preinscripciones.id_usuario', '=',$id_usuario)
+            ->get();
+
+        return view('Inscripciones.preinscripcionesView', compact('t', 'id_usuario'));
+    }
+
+    public function inscripcion($id_usuario, $id_evento)
+    {
+        $te = DB::table('eventos')
+            ->select('nombre', 'id')
             ->where('id','=',$id_evento)
             ->get();
-        return view('Inscripciones.preinscripcionView', compact('t'));
+        
+        $ti = DB::table('tipos_inscrito')
+            ->select('id','nombre')
+            ->get();
+        
+        $tpa = DB::table('paquetes')
+            ->select('id','nombre', 'precio')
+            ->get();
+        
+        $tpr = DB::table('promociones')
+            ->select('id','nombre', 'descuento')
+            ->get();
+        
+        return view('Inscripciones.inscripcionView', compact('id_usuario', 'te', 'ti', 'tpa', 'tpr'));
     }
 
     //codigo (PT12)

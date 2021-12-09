@@ -19,11 +19,11 @@ class AddForeignKeyPaquetesTable extends Migration
             $table->foreign('id_paquete')->references('id')->on('paquetes');
         });
 
-        Schema::table('preinscripciones', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->bigInteger('id_paquete')->unsigned();
-            $table->foreign('id_paquete')->references('id')->on('paquetes');
-        });
+        // Schema::table('preinscripciones', function (Blueprint $table) {
+        //     $table->engine = 'InnoDB';
+        //     $table->bigInteger('id_paquete')->unsigned();
+        //     $table->foreign('id_paquete')->references('id')->on('paquetes');
+        // });
 
         Schema::table('actividades_paquetes', function (Blueprint $table) {
             $table->engine = 'InnoDB';
