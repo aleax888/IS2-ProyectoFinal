@@ -7,7 +7,19 @@
     <div class="container-fluid">
         <ul class="nav navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" style="color: #8FBCBB" href="{{url('/GestionAdministrativa/Eventos')}}">Eventos</a>
+                <a class="nav-link" style="color: #8FBCBB" href="{{url('/reportes/seleccion')}}">Reportes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color: #DEC692" href="{{url('/GestionAdministrativa/Eventos')}}">Administracion</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color: #8FBCBB" href="{{url('/configuracion/seleccion')}}">Configuracion</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color: #8FBCBB" href="#">Caja</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color: #8FBCBB" href="#">Asistencia</a>
             </li>
         </ul>
     </div> 
@@ -16,13 +28,13 @@
 
 @section('content')
     <h1>Gestionar Roles</h1>
-<table class="table table-light" border = 1 width= "100%" style="border-color:#c7dede; border: 1px solid #c7dede;">
+<table class="table table-light" border = 1>
     <thead class = "thead-light">
         <tr>
-            <th style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;"><b>Nombre</b></th>
-            <th style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;"><b>Apellido</b></th>
-            <th style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;"><b>Email</b></th>
-            <th style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;"><b>Rol</bS></th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Rol</th>
         </tr>
     </thead>
 
@@ -30,11 +42,11 @@
         
             @foreach ($t1 as $usuario)    
             <tr>
-                <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;"><b>{{$usuario->unombre}}</b></td>
-                <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">{{$usuario->apellido}}</td>
-                <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">{{$usuario->email}}</td>
+                <td>{{$usuario->unombre}}</td>
+                <td>{{$usuario->apellido}}</td>
+                <td>{{$usuario->email}}</td>
                 
-                <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">
+                <td>
                 <form action="{{url('GestionAdministrativa/GestionarRoles/'. $id_evento)}}" method ="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" value="{{$usuario->id}}">
@@ -51,10 +63,12 @@
                             @endif
                         @endforeach
                     </select>
-                    <input  class="btn btn-primary btn-xl disabled" type="submit" name="guardar" id="guardar">
+                    <input type="submit" name="guardar" id="guardar">
                 </form>
                 </td>
+                <td>
                 
+                </td>
             </tr>
             
             @endforeach
