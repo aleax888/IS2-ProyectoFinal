@@ -28,21 +28,21 @@
 
 @section('content')
     <h1>Reporte de Materiales</h1>
-    <table class="table table-striped table-light" border="1">
+    <table class="table table-striped table-light" border="1" width= "100%" style="border-color:#c7dede; border: 1px solid #c7dede;">
 
     <tr>
-        <th>Nombre Material</th>
-        <th>Cantidad Adquirido</th>
-        <th>Cantidad entregado</th>
-        <th>Fecha</th>
+        <th style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">Nombre Material</th>
+        <th style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">Cantidad Adquirido</th>
+        <th style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">Cantidad entregado</th>
+        <th style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">Fecha</th>
     </tr>
 
     @foreach ($t as $t)
         <tr>
-            <td>{{$t->nombre}}</td>
-            <td>{{$t->cantidad}}</td>
-            <td>{{$t->cantidad_material}}</td>
-            <td>{{$t->fecha}}</td>
+            <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">{{$t->nombre}}</td>
+            <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">{{$t->cantidad}}</td>
+            <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">{{$t->cantidad_material}}</td>
+            <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;">{{$t->fecha}}</td>
         </tr>
     @endforeach
 

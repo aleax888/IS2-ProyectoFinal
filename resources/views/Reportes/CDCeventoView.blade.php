@@ -28,19 +28,19 @@
 
 @section('content')
     <h1>Cierre de Caja de {{$t[0]->nombre}}</h1>
-    <table class="table table-striped table-light" border="1">
+    <table class="table table-striped table-light" border="1" width= "100%" style="border-color:#c7dede; border: 1px solid #c7dede;">
 
     <tr>
-        <th>Gastos</th>
-        <th>Ingresos</th>
-        <th>fecha</th>
+        <th style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;" >Gastos</th>
+        <th style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;" >Ingresos</th>
+        <th style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;" >fecha</th>
     </tr>
 
     @foreach ($t as $t)
         <tr>
-            <td>{{$t->gmonto}}</td>
-            <td>{{$t->imonto}}</td>
-            <td>{{$t->fecha}}</td>
+            <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;" >{{$t->gmonto}}</td>
+            <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;" >{{$t->imonto}}</td>
+            <td style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;" >{{$t->fecha}}</td>
         </tr>
     @endforeach
 
