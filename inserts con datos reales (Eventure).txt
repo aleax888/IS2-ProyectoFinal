@@ -31,21 +31,21 @@ INSERT INTO `tipos_actividad`(`id`, `nombre`, `created_at`, `updated_at`) VALUES
 INSERT INTO `tipos_actividad`(`id`, `nombre`, `created_at`, `updated_at`) VALUES ('','Catedra','','');
 
 -- Usuarios
-INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `contraseña`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Francisca','Parra','vifowat262@hypteo.com','NvVKKY7fkXVs','','','1');
-INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `contraseña`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Rogelio','Salcedo','jacix61224@idrct.com','GmFsJ7AYVv9n','','','1');
-INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `contraseña`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Alex','Portillo','jihiy62401@hypteo.com','DVpa6r4JcTTg','','','1');
-INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `contraseña`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Jan','Marco','refika6688@hypteo.com','pjHJhKgKYvpb','','','2');
-INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `contraseña`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Leire','Albert','yotome4184@hypteo.com','nA7HW2mPFSuu','','','2');
-INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `contraseña`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Alfonsa','Rojo','bahes85792@idrct.com','eAabbDycPprV','','','2');
-INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `contraseña`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Maria','Camara','fehawov805@incoware.com','4kV5rfqrKYRv','','','3');
-INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `contraseña`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Nayara','Sanchis','pawanij985@hypteo.com','eAbm9mcGp6aV','','','3');
-INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `contraseña`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Salah','Arce','wagecac559@hypteo.com','JHZQbhrZdvXr','','','3');
-INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `contraseña`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Jaime','Santamaria','keway53758@hypteo.com','VdmUNe7tFyv9','','','4');
-INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `contraseña`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Lucia','Piñeiro','cebacil645@hypteo.com','HsZ4jHkCPM6y','','','4');
-INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `contraseña`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Iciar','Mestre','pimok64564@incoware.com','JqQgpmrmqpPm','','','4');
-INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `contraseña`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Constantin','Palomares','rabacik751@incoware.com','JhkQMqdFRhrx','','','1');
-INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `contraseña`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Pol','Luis','hinosa4355@hypteo.com','3jREauSAZ8G2','','','1');
-INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `contraseña`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Jenifer','Andujar','komore7624@idrct.com','mn3SGXCNtbfb','','','1');
+INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `password`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Francisca','Parra','vifowat262@hypteo.com','NvVKKY7fkXVs','','','1');
+INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `password`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Rogelio','Salcedo','jacix61224@idrct.com','GmFsJ7AYVv9n','','','1');
+INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `password`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Alex','Portillo','jihiy62401@hypteo.com','DVpa6r4JcTTg','','','1');
+INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `password`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Jan','Marco','refika6688@hypteo.com','pjHJhKgKYvpb','','','2');
+INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `password`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Leire','Albert','yotome4184@hypteo.com','nA7HW2mPFSuu','','','2');
+INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `password`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Alfonsa','Rojo','bahes85792@idrct.com','eAabbDycPprV','','','2');
+INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `password`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Maria','Camara','fehawov805@incoware.com','4kV5rfqrKYRv','','','3');
+INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `password`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Nayara','Sanchis','pawanij985@hypteo.com','eAbm9mcGp6aV','','','3');
+INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `password`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Salah','Arce','wagecac559@hypteo.com','JHZQbhrZdvXr','','','3');
+INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `password`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Jaime','Santamaria','keway53758@hypteo.com','VdmUNe7tFyv9','','','4');
+INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `password`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Lucia','Piñeiro','cebacil645@hypteo.com','HsZ4jHkCPM6y','','','4');
+INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `password`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Iciar','Mestre','pimok64564@incoware.com','JqQgpmrmqpPm','','','4');
+INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `password`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Constantin','Palomares','rabacik751@incoware.com','JhkQMqdFRhrx','','','1');
+INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `password`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Pol','Luis','hinosa4355@hypteo.com','3jREauSAZ8G2','','','1');
+INSERT INTO `usuarios`(`id`, `QR`, `nombre`, `apellido`, `email`, `password`, `created_at`, `updated_at`, `id_rol`) VALUES ('','QR_text','Jenifer','Andujar','komore7624@idrct.com','mn3SGXCNtbfb','','','1');
 
 -- Eventos
 INSERT INTO `eventos`(`id`, `nombre`, `lugar`, `fecha_inicio`, `fecha_fin`, `created_at`, `updated_at`, `id_tipo_evento`) VALUES ('','SC21','Recinto: America’s Center,Ciudad: St. Louis,País: Estados Unidos, USA','2021/09/15','2021/09/18','','','1');
@@ -239,9 +239,9 @@ INSERT INTO `promociones`(`id`, `nombre`, `descuento`, `created_at`, `updated_at
 INSERT INTO `promociones`(`id`, `nombre`, `descuento`, `created_at`, `updated_at`, `id_rol`) VALUES ('','Promocion 1','18','','','4');
 
 -- PreInscripciones
-INSERT INTO `preinscripciones`(`id`, `fecha_preinscripcion`, `created_at`, `updated_at`, `id_paquete`, `id_usuario`) VALUES ('','2021/07/20','','','1','1');
-INSERT INTO `preinscripciones`(`id`, `fecha_preinscripcion`, `created_at`, `updated_at`, `id_paquete`, `id_usuario`) VALUES ('','2021/07/20','','','2','2');
-INSERT INTO `preinscripciones`(`id`, `fecha_preinscripcion`, `created_at`, `updated_at`, `id_paquete`, `id_usuario`) VALUES ('','2021/07/20','','','3','3');
+INSERT INTO `preinscripciones`(`id`, `fecha_preinscripcion`, `created_at`, `updated_at`, `id_evento` , `id_usuario`) VALUES ('','2021/07/20','','', '1' ,'1');
+INSERT INTO `preinscripciones`(`id`, `fecha_preinscripcion`, `created_at`, `updated_at`, `id_evento` , `id_usuario`) VALUES ('','2021/07/20','','', '2' ,'2');
+INSERT INTO `preinscripciones`(`id`, `fecha_preinscripcion`, `created_at`, `updated_at`, `id_evento` , `id_usuario`) VALUES ('','2021/07/20','','','3','3');
 
 -- Asistencias
 INSERT INTO `asistencias`(`id`, `material`, `cantidad_material`, `hora`, `fecha`, `created_at`, `updated_at`, `id_actividades`, `id_inscripciones`) VALUES ('','Trifoleado','1','12:00:00','2021/09/15','','','1','1');
@@ -252,5 +252,3 @@ INSERT INTO `asistencias`(`id`, `material`, `cantidad_material`, `hora`, `fecha`
 INSERT INTO `asistencias`(`id`, `material`, `cantidad_material`, `hora`, `fecha`, `created_at`, `updated_at`, `id_actividades`, `id_inscripciones`) VALUES ('','Trifoleado','1','12:00:00','2021/09/01','','','6','6');
 INSERT INTO `asistencias`(`id`, `material`, `cantidad_material`, `hora`, `fecha`, `created_at`, `updated_at`, `id_actividades`, `id_inscripciones`) VALUES ('','Trifoleado','1','12:00:00','2021/09/01','','','7','7');
 INSERT INTO `asistencias`(`id`, `material`, `cantidad_material`, `hora`, `fecha`, `created_at`, `updated_at`, `id_actividades`, `id_inscripciones`) VALUES ('','Trifoleado','1','12:00:00','2021/09/01','','','8','8');
-
-
