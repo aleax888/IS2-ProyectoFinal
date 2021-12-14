@@ -69,12 +69,15 @@
     <button onclick="myFunction1()" class="btn btn-primary">GestionarComites</button>
     <button onclick="myFunction2()" class="btn btn-primary">GestionarRoles</button>
     <div id="CrudComites" style="display: block">
+    <div class="card-body">
         <table class="table table-dark table-striped mt-4">
             <thead>
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#crearComiteModal">Crear Comite</button>
                 <tr>
                     <th scope="col"> Nombre </th>
                     <th scope="col"> Nro Integrantes </th>
+                    {{-- <th scope="col"> Editar </th>
+                    <th scope="col"> Eliminar</th> --}}
                     {{-- <th type="button" class="btn btn-info" data-toggle="modal" data-target="#crearComiteModal"> Crear Comite</th> --}}
                 </tr>
             </thead>
@@ -118,7 +121,9 @@
             </tbody>
         </table>
     </div>
+    </div>
     <div id="CrudRoles" style="display: none">
+    <div class="card-body">
         <table class="table table-dark table-striped mt-4">
             <thead>
                 <tr>
@@ -181,6 +186,7 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
     </div>
 
     <div class="modal fade" id="crearComiteModal" tabindex="-1" role="dialog" aria-labelledby="CrearComite" aria-hidden="true">

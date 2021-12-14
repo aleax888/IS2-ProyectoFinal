@@ -29,8 +29,9 @@
 
 @section('content')
 <h1>Lista de Eventos</h1>
-<table class="table table-light" border = 1>
-    <thead class = "thead-light">
+<div class="card-body">
+<table class="table table-dark" >
+    <thead>
         <tr>
             <th>Nombre</th>
             <th>lugar</th>
@@ -47,13 +48,15 @@
             <td>{{$evento->lugar}}</td>
             <td>{{$evento->fecha_inicio}}</td>
             <td>{{$evento->fecha_fin}}</td>
-            <td>
+            {{-- <td>
                 <a href="{{url('/GestionAdministrativa/Evento/'.$evento->id)}}">
                     Administrar
                 </a> 
-            </td>
+            </td> --}}
+            <td ><a class="btn btn-info text-red" href="{{url('/GestionAdministrativa/Evento/'.$evento->id)}}">Administrar</td>
         </tr>
         @endforeach
     </tbody>
 </table>
+</div>
 @endsection
