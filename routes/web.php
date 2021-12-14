@@ -45,9 +45,16 @@ Route::get('reportes/cierredecaja/diario/{fecha}', [CierreDeCajaController::clas
 Route::get('reportes/materiales', MaterialesController::class);
 
 //Gestion Administrativa
-Route::resource('GestionAdministrativa/Eventos', EventoController::class);
+//Route::resource('GestionAdministrativa/Eventos', EventoController::class);
+Route::get('GestionAdministrativa/Eventos', [EventoController::class, 'ShowEventosGestionAdministrativa']);
+Route::get('GestionAdministrativa/Evento/{id_evento}', [EventoController::class, 'ShowMenuGestionAdministrativa']);
+Route::post('GestionAdministrativa/CrearComite', [EventoController::class, 'GuardarComite']);
+Route::post('GestionAdministrativa/EditarComite', [EventoController::class, 'EditarComite']);
+Route::get('GestionAdministrativa/EliminarComite/{id_comite}/{id_evento}', [EventoController::class, 'EliminarComite']);
+Route::post('GestionAdministrativa/EditarRol/{id_evento}', [EventoController::class, 'EditarRol']);
+
+
 Route::resource('GestionAdministrativa/Comites', ComiteController::class);
-Route::post('GestionAdministrativa/CrearComite/', [EventoController::class, 'GuardarComite']);
 Route::get('GestionAdministrativa/ShowCrearComite/{id}', [EventoController::class, 'ShowGuardarComite']);
 Route::get('GestionAdministrativa/GestionarRoles/{id}', [EventoController::class, 'showEditarRol']);
 Route::post('GestionAdministrativa/GestionarRoles/{id}', [EventoController::class, 'saveEditarRol']);

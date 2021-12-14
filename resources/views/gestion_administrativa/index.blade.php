@@ -48,7 +48,7 @@
             <td>{{$evento->fecha_inicio}}</td>
             <td>{{$evento->fecha_fin}}</td>
             <td>
-                <a href="{{url('/GestionAdministrativa/Eventos/'.$evento->id)}}">
+                <a href="{{url('/GestionAdministrativa/Evento/'.$evento->id)}}">
                     Administrar
                 </a> 
             </td>

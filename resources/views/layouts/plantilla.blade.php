@@ -3,9 +3,10 @@
 <head>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <!------ Include the above in your HEAD tag ---------->
-
+    @yield('modal')
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
+    <script type="text/javascript" src="{{URL::asset('js/GestionAdministrativa.js')}}"></script>
     <link href="{{ asset(mix('css/app.css')) }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>@yield('title')</title> 
