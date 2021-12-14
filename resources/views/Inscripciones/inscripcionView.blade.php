@@ -20,8 +20,9 @@
 @endsection
 
 @section('content')
-<h1>{{$te[0]->nombre}}</h1>
-<form action="{{url('')}}" method ="post" enctype="multipart/form-data">
+    <h1>{{$te[0]->nombre}}</h1>
+    
+    <form action="{{url('inscripcion/form/' . $id_usuario . '/' . $te[0]->id)}}" method ="post" enctype="multipart/form-data">
     @csrf
 
         <label for="ti"> tipos inscrito </label>
@@ -36,7 +37,7 @@
             @foreach ($tpa as $t)
                 <option value="{{$t->id}}">{{$t->nombre}}</option>
             @endforeach
-        </select>
+        </select>   
         <br>
         <label for="tpr"> promociones </label>
         <select name="tpr">
@@ -45,7 +46,18 @@
             @endforeach
         </select>
         <br>
+
+        <label for="nt"> Nro. de Tarjeta </label>
+        <input type="number" name="nt" id="nt">
+        <br>
+        <label for="fecha_ven"> Fecha de vencimiento </label>
+        <input type="date" name="fecha_ven" id="fecha_ven">
+        <br>
+        <label for="cvv"> CVV </label>
+        <input type="number" name="cvv" id="cvv"> 
+        <br>
         <input type="submit" name="guardar" id="guardar">
+        
         <br>
 
     </form>

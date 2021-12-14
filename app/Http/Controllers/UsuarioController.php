@@ -28,12 +28,15 @@ class UsuarioController extends Controller
     }
 
     //codigo (PT11)
-    public function listarEventos()
+    public function listarEventos($id_usuario)
     {
-        $t = DB::table('eventos')
+        $t = DB::table('inscripciones')
             ->select('eventos.nombre', 'eventos.id')
-            //->where('eventos.id_usuario','=',$id)
+            ->join('eventos', 'eventos.id','=','inscripciones.id_evento')
+            ->where('inscripciones.id_usuario','=',$id_usuario)
+            ->where('inscripciones.id_tipo_inscrito','=',3)
             ->get();
+        
         return view('Asistencia.responsabilidadesView', compact('t'));
     }
 
@@ -61,27 +64,22 @@ class UsuarioController extends Controller
             'id_usuario' => $datos['idu'],
             
         ]);
-        
-        $t = DB::table('eventos')
-            ->select('eventos.nombre', 'eventos.id', DB::raw("(CASE 
-            WHEN (SELECT id_evento from preinscripciones 
-                WHERE id_usuario ='$id_usuario'and id_evento = eventos.id) 
-                THEN 1 
-            ELSE 0 
-            END) as pre"))
-            ->get();
-
-        return view('Inscripciones.eventosPreView', compact('t', 'id_usuario'));
+        return UsuarioController::listarEventos2($id_usuario);
     }
 
     public function verPreinscripciones($id_usuario)
     {
         $t = DB::table('eventos')
-            ->select('eventos.nombre', 'eventos.id', 'preinscripciones.id_usuario')
+            ->select('eventos.nombre', 'eventos.id', 'preinscripciones.id_usuario', DB::raw("(CASE 
+            WHEN (SELECT id_evento from inscripciones 
+                WHERE id_usuario ='$id_usuario'and id_evento = eventos.id) 
+                THEN 1 
+            ELSE 0 
+            END) as v"))
             ->join('preinscripciones','preinscripciones.id_evento','=','eventos.id')
             ->where('preinscripciones.id_usuario', '=',$id_usuario)
             ->get();
-
+        
         return view('Inscripciones.preinscripcionesView', compact('t', 'id_usuario'));
     }
 
@@ -107,6 +105,41 @@ class UsuarioController extends Controller
         return view('Inscripciones.inscripcionView', compact('id_usuario', 'te', 'ti', 'tpa', 'tpr'));
     }
 
+    public function inscripcionGuardar($id_usuario, $id_evento)
+    {
+        $datos = request()->except('_token', 'guardar');
+        
+        
+        $mpr = DB::table('promociones')
+            ->select('descuento')
+            ->where('id','=',$datos['tpr'])
+            ->get();
+
+        $mpa = DB::table('paquetes')
+            ->select('precio')
+            ->where('id','=',$datos['tpa'])
+            ->get();
+        $m = $mpa[0]->precio - $mpr[0]->descuento;
+        
+        DB::table('ingresos')->insert([
+            'num_transaccion' => rand(10000, 99999),
+            'fecha' => date('y-m-d'),
+            'monto' => $m,
+            'id_evento' => $id_evento,
+        ]);
+        
+        DB::table('inscripciones')->insert([
+            'fecha_inscripcion' => date('y-m-d'),
+            'id_paquete' => $datos['tpa'],
+            'id_evento' => $id_evento,
+            'id_usuario' => $id_usuario,
+            'id_tipo_inscrito' => $datos['ti'],   
+        ]);
+            
+
+        return UsuarioController::verPreinscripciones($id_usuario);
+    }
+
     //codigo (PT12)
     public function tomarAsistencia($id_evento)
     {
@@ -123,10 +156,29 @@ class UsuarioController extends Controller
     public function materialesAmbiente()
     {
         $t = DB::table('materiales')
-            ->select('materiales.nombre', 'materiales.id')
+            ->select('materiales.nombre', 'materiales.id', 'materiales.cantidad', 'materiales.descripcion','tipos_material.nombre as t')
+            ->join('tipos_material','tipos_material.id','=','materiales.id_tipo_material')
             ->get();
             
         return view('Asistencia.entregaDeMaterialAmbienteView', compact('t'));
+    }
+
+    public function materialesAmbienteGuardar()
+    {
+        $datos = request()->except('_token', 'guardar');
+        
+        $aux = DB::table('materiales')
+            ->select('cantidad')
+            ->where('id','=',$datos['id'])
+            ->get();
+        
+        DB::table('materiales')
+            ->where('id',$datos['id'])
+            ->update([
+                'cantidad' => $aux[0]->cantidad - $datos['cantidad'],
+        ]);
+
+        return UsuarioController::materialesAmbiente();
     }
     
     //codigo (PT14)

@@ -1,7 +1,6 @@
-<!-- UI02 -->
 @extends('layouts.plantilla')
 
-@section('title', 'Administrador')
+@section('title', 'Caja')
 
 @section('lista')
     <div class="container-fluid">
@@ -16,7 +15,7 @@
                 <a class="nav-link" style="color: #8FBCBB" href="{{url('/configuracion/seleccion')}}">Configuracion</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="color: #8FBCBB" href="{{url('/eventos/escoger/' . $t[0]->id)}}">Caja</a>
+                <a class="nav-link" style="color: #DEC692" href="{{url('/eventos/escoger')}}">Caja</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" style="color: #8FBCBB" href="#">Asistencia</a>
@@ -27,10 +26,24 @@
 @endsection
 
 @section('content')
-<h1>Perfil de {{$t[0]->nombre}} {{$t[0]->apellido}}</h1>
-<h2>Correo: {{$t[0]->email}}</h2>
-<div>
-
-    <h1>{{$t[0]->QR}}</h1>
-</div>
+    <h1>Eventos</h1>
+    <div style="width:60%">
+        <table class="table table-striped table-light" border="1">
+            <thread class = "thead-light">
+                <tr >
+                    <th>Eventos</th>
+                </tr>   
+            </thread>
+            @foreach ($t as $t)
+                <tr>
+                    <td>
+                        {{$t->nombre}}
+                    </td>
+                    <td>
+                    <a class="nav-link"  href="{{url('ver/transacciones/' . $t->id . '/' . $id_usuario)}}">ver transacciones</a>
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
 @endsection

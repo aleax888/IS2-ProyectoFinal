@@ -28,14 +28,25 @@
 
     <tr>
         <th>Nombre Material</th>
+        <th>Cantidad</th>
+        <th>Descripcion</th>
+        <th>Tipo</th>
         <th>Cantidad a entregar</th>
     </tr>
 
     @foreach ($t as $t)
         <tr>
             <td>{{$t->nombre}}</td>
+            <td>{{$t->cantidad}}</td>
+            <td>{{$t->descripcion}}</td>
+            <td>{{$t->t}}</td>
             <td>
-            <input type="number" name="cantidad" id = "cantidad">
+                <form action="{{url('responsabilidades/materialesAmbiente')}}" method ="post" enctype="multipart/form-data">
+                @csrf
+                    <input type="number" name="cantidad" id = "cantidad">
+                    <input type="hidden" name="id" id="id" value="{{$t->id}}">
+                    <input type="submit" name="guardar" id="guardar">
+                </form>
             </td>
             
             

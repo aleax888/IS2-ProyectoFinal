@@ -13,7 +13,7 @@
                 <a class="nav-link" style="color: #8FBCBB" href="#">Certificados</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="color: #8FBCBB" href="{{url('responsabilidades/seleccion/')}}">Responsabilidades</a>
+                <a class="nav-link" style="color: #8FBCBB" href="{{url('responsabilidades/seleccion/'.$t[0]->id)}}">Responsabilidades</a>
             </li>
         </ul>
     </div> 

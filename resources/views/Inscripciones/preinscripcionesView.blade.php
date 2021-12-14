@@ -28,7 +28,11 @@
                 {{$t->nombre}}
             </td>
             <td>
-                <a class="nav-link"  href="{{url('inscripcion/form/' . $id_usuario .'/'. $t->id)}}">Inscribirse</a>
+                @if($t->v > 0)
+                    <p>dentro del comite</p>
+                @else
+                    <a class="nav-link"  href="{{url('inscripcion/form/' . $id_usuario .'/'. $t->id)}}">Inscribirse</a>
+                @endif
             </td>
         </tr>
     @endforeach

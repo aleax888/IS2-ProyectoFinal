@@ -1,7 +1,7 @@
 <!-- UI04 -->
 @extends('layouts.plantilla')
 
-@section('title', 'Configuración')
+@section('title', 'Ver datos ambiente')
 
 @section('lista')
     <div class="container-fluid">
@@ -28,11 +28,11 @@
 
 @section('content')
     <style>
-        .button {
+        .big {
             background-color: #8FBCBB;
             border: none;
             color: white;
-            padding: 10px 24px;
+            padding: 10px 15px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
@@ -40,26 +40,45 @@
             margin: 4px 2px;
             cursor: pointer;
             border-radius: 12px;
-            width: 218px;
+            width: 150px;
         }
     </style>
 
-    <h1>Configuración</h1>
-    <div>
-        <form>
-            <button type="submit" class="button" formaction="{{url('configuracion/eventos')}}">Eventos</button>
-        </form>
-
-        <form>
-            <button type="submit" class="button"formaction="{{url('configuracion/actividades')}}">Actividades</button>
-        </form>
-
-        <form>
-            <button type="submit" class="button"formaction="{{url('configuracion/ambientes')}}">Ambientes</button>
-        </form>
-
-        <form>
-            <button type="submit" class="button"formaction="{{url('configuracion/materiales')}}">Materiales</button>
-        </form>
+    <h1>Datos de Ambiente</h1>
+    
+    <div style="width:50%">
+    <table class="table table-striped table-light" border="1">         
+        @foreach ($t as $ambiente) 
+        <h2 style="color: #8FBCBB">{{$ambiente->nombre}}</h2>      
+            <tr>
+                <td>
+                    Nombre:
+                </td>
+                <td>
+                    {{$ambiente->nombre}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Ubicación:  
+                </td>
+                <td>
+                    {{$ambiente->ubicacion}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Capacidad: 
+                </td>
+                <td>
+                    {{$ambiente->capacidad}}
+                </td>
+            </tr>
+        @endforeach
+    </table>   
     </div>
+
+    <form>
+        <button type="submit" class="big" formaction="{{url('configuracion/ambientes')}}">Ambientes</button>
+    </form>
 @endsection

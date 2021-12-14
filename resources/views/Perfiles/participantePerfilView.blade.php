@@ -15,6 +15,9 @@
             <li class="nav-item">
                 <a class="nav-link" style="color: #8FBCBB" href="{{url('preinscripciones/seleccion/' . $t[0]->id)}}">Preinscripciones</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color: #8FBCBB" href="{{url('unirse/comite/' . $t[0]->id)}}">Comites</a>
+            </li>
         </ul>
     </div>  
 
