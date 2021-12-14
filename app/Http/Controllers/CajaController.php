@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class CajaController extends Controller
 {
+    //código (PT36): Muestra el menu de caja.
     public function caja($id_usuario)
     {
         $t = DB::table('eventos')
@@ -17,6 +18,7 @@ class CajaController extends Controller
         return view('Caja.cajaView', compact('t', 'id_usuario'));
     }
 
+    //código (PT37): Muestra las transacciones hechas.
     public function verTransacciones($id_evento, $id_usuario)
     {
         $ti = DB::table('ingresos')
@@ -35,6 +37,7 @@ class CajaController extends Controller
         return view('Caja.verTransaccionesView', compact('ti','tg', 'enombre', 'id_usuario'));
     }
 
+    //código (PT36): Muestra el menu para registrar gastos.
     public function registrarGasto($id_evento, $id_usuario)
     {
         $t = DB::table('tipos_gasto')
@@ -43,6 +46,7 @@ class CajaController extends Controller
         return view('Caja.registrarGastoView', compact('t','id_evento', 'id_usuario'));
     }
 
+    //código (PT36): Guarda en los gastos en la base de datos.
     public function registrarGastoGuardar($id_evento, $id_usuario)
     {
         $datos = request()->except('_token', 'guardar');

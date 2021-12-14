@@ -27,6 +27,7 @@
 <h1>Perfil de {{$t[0]->nombre}} {{$t[0]->apellido}}</h1>
 <h2>Correo: {{$t[0]->email}}</h2>
 <div>
-    <h1>{{$t[0]->QR}}</h1>
+    <img class="img-thumbnail" width="330px" heigth="330px" src="../images/qr.png" style="">
+    
 </div>
 @endsection

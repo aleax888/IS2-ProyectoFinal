@@ -42,6 +42,10 @@ class UsuarioController extends Controller
 
     public function listarEventos2($id_usuario)
     {
+        // $aux = DB::table('eventos')
+        // ->select('*')
+        // ->get();
+        
         $t = DB::table('eventos')
             ->select('eventos.nombre', 'eventos.id', DB::raw("(CASE 
             WHEN (SELECT id_evento from preinscripciones 
@@ -51,6 +55,7 @@ class UsuarioController extends Controller
             END) as pre"))
             ->get();
 
+        //dd($t);
         return view('Inscripciones.eventosPreView', compact('t', 'id_usuario'));
     }
 

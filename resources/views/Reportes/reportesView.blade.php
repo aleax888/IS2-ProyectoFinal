@@ -46,7 +46,7 @@
                     </div>
     </div>
 </div>   
-<div style = "float:right; background-color:#c7dede; margin:6px" width="50%" >      
+<div style = "float:right; background-color:#c7dede; margin-top:6px" width="50%" >      
     <a href="{{url('/reportes/inscritos')}}">
         <h3>Reporte de Inscritos</h3>
     </a> 

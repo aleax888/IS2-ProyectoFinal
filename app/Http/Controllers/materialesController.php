@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
+use App\Models\Material;
 use Illuminate\Support\Facades\DB;
 
 // codigo de controlador (CD06)

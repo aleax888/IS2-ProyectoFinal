@@ -28,7 +28,59 @@
 
 @section('content')
     <h1>Cierre de Caja de {{$t[0]->nombre}}</h1>
-    <table class="table table-striped table-light" border="1" width= "100%" style="border-color:#c7dede; border: 1px solid #c7dede;">
+    <div style="width:60%">
+        <h3>Ingresos</h3>
+        <table class="table table-striped table-light" border="1">
+            <thread class = "thead-light">
+                <tr >
+                    <th>monto</th>
+                    <th>fecha</th>
+                </tr>
+
+            </thread>
+            @foreach ($ti as $t)
+                <tr>
+                    <td>
+                        {{$t->monto}}
+                    </td>
+                    <td>
+                        {{$t->fecha}}
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
+    <div style="width:60%">
+        <h3>Gastos</h3>
+        <table class="table table-striped table-light" border="1">
+            <thread class = "thead-light">
+                <tr >
+                    <th>monto</th>
+                    <th>fecha</th>
+                    <th>descripcion</th>
+                    <th>Tipo</th>
+                </tr>
+            </thread>
+            @foreach ($tg as $t)
+                <tr>
+                    <td>
+                        {{$t->monto}}
+                    </td>
+                    <td>
+                        {{$t->fecha}}
+                    </td>
+                    <td>
+                        {{$t->descripcion}}
+                    </td>
+                    <td>
+                        {{$t->nombre}}
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
+
+    {{-- <table class="table table-striped table-light" border="1" width= "100%" style="border-color:#c7dede; border: 1px solid #c7dede;">
 
     <tr>
         <th style ="width: 25%;text-align: left; vertical-align: top;border: 1px solid #c7dede;" >Gastos</th>
@@ -44,5 +96,5 @@
         </tr>
     @endforeach
 
-    </table>
+    </table> --}}
 @endsection
