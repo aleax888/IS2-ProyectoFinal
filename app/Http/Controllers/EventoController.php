@@ -11,27 +11,6 @@ use Illuminate\Support\Facades\DB;
 // codigo de controlador (CD04)
 class EventoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    //codigo (PT05)
-    public function index()
-    {
-        //
-        $datosEvento = DB::table('eventos')
-                        ->select('eventos.id','eventos.nombre','eventos.lugar','eventos.fecha_inicio','fecha_fin')
-                        ->get();
-        return view('gestion_administrativa.index',compact(['datosEvento']));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
     //codigo (PT15)
     public function crearEvento()
@@ -67,113 +46,78 @@ class EventoController extends Controller
         return view('Configuracion.editarEventoView');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+
+    //Controladores Gestion Administrativa
+    public function ShowEventosGestionAdministrativa(){
+        $datosEvento = DB::table('eventos')
+        ->select('eventos.id','eventos.nombre','eventos.lugar','eventos.fecha_inicio','fecha_fin')
+        ->get();
+        return view('gestion_administrativa.index',compact(['datosEvento']));
+    }
+
+    public function ShowMenuGestionAdministrativa($evento_id){
+        $datosComite = DB::table('comites')
+        ->select('*')
+        ->where('comites.id_evento','=',$evento_id )
+        ->get();
         
+        $datosUsuario = DB::table('usuarios')
+        ->select('usuarios.id as uid','usuarios.nombre as unombre', 'usuarios.apellido', 'usuarios.email', 'roles.nombre as rnombre', 'roles.id as rid')
+        ->join('inscripciones', 'usuarios.id', 'inscripciones.id_usuario')
+        ->join('roles', 'usuarios.id_rol', 'roles.id')
+        ->where('inscripciones.id_evento','=', $evento_id)
+        ->get();
+
+        $roles = DB::table('roles')
+        ->select('*')
+        ->get();
+        //$dataEvento = Evento::findOrFail($Eventoid);
+        //return dd($datosEvento);
+        //dd($datosComite);
+        //dd($datosUsuario);
+        return view('gestion_administrativa.menu', compact(['datosComite','evento_id','datosUsuario', 'roles']));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Evento  $evento
-     * @return \Illuminate\Http\Response
-     */
-
-    //codigo (PT19)
-    public function show(Evento $evento, $id)
-    {
-        //
-        $dataEvento = Evento::findOrFail($id);
-        return view('gestion_administrativa.menu', compact('dataEvento'));
-    }
-
-    /**
-     * Show the form for editing the specified resourc  e.
-     *
-     * @param  \App\Models\Evento  $evento
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Evento $evento)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Evento  $evento
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Evento $evento)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Evento  $evento
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Evento $evento)
-    {
-        //
-    }
-
-    //codigo (PT20)
-    public function showEditarRol($id_evento)
-    {
-        $t1 = DB::table('usuarios')
-            ->join('inscripciones', 'inscripciones.id_usuario','=','usuarios.id')
-            ->join('eventos', 'eventos.id','=','inscripciones.id_evento')
-            ->join('roles','roles.id','=','usuarios.id_rol')
-            ->where('eventos.id','=',$id_evento)
-            ->select('usuarios.id','usuarios.nombre as unombre', 'usuarios.apellido', 'usuarios.email','roles.nombre as rnombre', 'roles.id as rid')
-            ->get();
-        $t2 = DB::table('roles')
-            ->select('roles.id','roles.nombre')
-            ->get();
+        //codigo (PT23)
+    public function GuardarComite(Request $datosComite){
         
-        return view('gestion_administrativa.gestionar_roles', compact('t1', 't2', 'id_evento'));
+        //$datosComite = request()->except(['_token','guardar']);
+        DB::table('comites')->insert(['nombre' => $datosComite->nombre, 'nro_inte' => $datosComite->nro_inte, 'id_evento' => $datosComite->id_evento]);
+        return EventoController::ShowMenuGestionAdministrativa($datosComite->id_evento);
+        //Comite::insert($datosComite); 
+        
+        //return EventoController::Show();
     }
 
-    //codigo (PT21)
-    public function saveEditarRol($id_evento)
-    {
-        //$datosUsuario = request()->except('_token', 'guardar');
-        $id = request()->input('id');
-        $id_rol = request()->input('id_rol');
-        DB::table('usuarios')
-            ->where('id',$id)
-            ->update(array('id_rol'=>$id_rol));
-        
-        return EventoController::showEditarRol($id_evento);
+    public function EliminarComite($id_comite, $id_evento){
+        $aux = DB::table('codigos')->where('id_comite',$id_comite)->get();
+        if(!empty($aux[0])){
+            DB::table('codigos')->where('id_comite', $id_comite)->delete();
+        }
+        DB::table('comites')->where('id', $id_comite)->delete();
+
+        return EventoController::ShowMenuGestionAdministrativa($id_evento);
     }
 
-    //codigo (PT22)
-    public function ShowGuardarComite($id){
-        //$datosComite = request()->all();
-        //Comite::insert($datosComite);
-        $dataEvento = Evento::findOrFail($id);
+    public function EditarRol(Request $datosUsuario, $id_evento){
+        //return $datosUsuario;
         
-        return view('gestion_administrativa.crear_comite', compact('dataEvento'));
-        //return response()->json($id);
+        if($datosUsuario->actualRolID === $datosUsuario->Rol){
+            return EventoController::ShowMenuGestionAdministrativa($id_evento);
+        }
+        
+        DB::table('Usuarios')
+        ->where('id', $datosUsuario->id_usuario)
+        ->update(array('id_rol'=>$datosUsuario->Rol));
+
+        return EventoController::ShowMenuGestionAdministrativa($id_evento);
     }
 
-    //codigo (PT23)
-    public function GuardarComite(){
-        $datosComite = request()->except(['_token','guardar']);
+    public function EditarComite(Request $datosComite){
+        DB::table('Comites')
+        ->where('id',$datosComite->id_comite)
+        ->update(array('nombre'=>$datosComite->nombre, 'nro_inte'=>$datosComite->Nro_inte));
 
-        Comite::insert($datosComite); 
-        
-        return response()->json($datosComite);
+        return EventoController::ShowMenuGestionAdministrativa($datosComite->id_evento);
     }
 }
